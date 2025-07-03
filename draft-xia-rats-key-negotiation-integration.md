@@ -31,12 +31,16 @@ author:
     name: Weiyu Jiang
     org: Huawei Technologies
     email: jiangweiyu1@huawei.com
+  -
+    name: Muhammad Usama Sardar
+    org: TU Dresden
+    email: muhammad_usama.sardar@tu-dresden.de
 
 contributor:
 
 normative:
 
-informative:
+informative: I-D.fossati-tls-attestation: tls-a1 I-D.fossati-tls-exported-attestation: tls-a2 I-D.ietf-lamps-csr-attestation: csr-a
 
 --- abstract
 
@@ -47,11 +51,11 @@ This draft proposes a lightweight security enhancement scheme based on remote at
 # Introduction {#intro}
 
 Remote attestation is a security mechanism based on trusted hardware (e.g., TPM, TEE), allowing remote verifiers to cryptographically verify the integrity of the target device's software configuration, hardware state, and runtime environment.
-The RATS protocol can effectively prove the overall security of the endpoint.
-Security channel protocols (e.g., TLS, QUIC, IPSec, SSH, etc.) establish end-to-end secure channels based on the authentication of the endpoint's legitimate identity and secure key negotiation, ensuring the security of network communication.
-By organically combining remote attestation protocols with security channel protocols and establishing automatic associations between them, it is possible to achieve a logical binding of endpoint security and network security, ensuring dual verification and protection of the endpoint identity and endpoint system security in secure connections. AttestedTLS is currently an important related work in the industry, and other similar works include binding remote attestation with credential issuance (e.g., certificates, OAuth tokens, etc.) to achieve security enhancement.
+Hence, remote attestation can effectively prove the overall security state of the endpoint.
+Secure channel protocols (e.g., TLS, QUIC, IPSec, SSH) establish end-to-end secure channels based on the authentication of the endpoint's legitimate identity and secure key negotiation, ensuring the security of network communication.
+By organically combining remote attestation protocols with secure channel protocols and establishing cryptographic binding between them, it is possible to achieve a logical binding of endpoint security and network security, ensuring dual verification and protection of the identity and state of the endpoint in secure connections. Attested TLS {{-tls-a1}} {{-tls-a2}} is currently an important related work in the industry, and other similar works include binding remote attestation with credential issuance (e.g., certificates {{-csr-a}}, OAuth tokens, etc.) to achieve security enhancement.
 
-However, in some scenarios, the above binding may not always be possible.
+However, in some scenarios, the above binding may not be possible.
 For example:
 
 * Scenario 1: When tenants in a public cloud/compute cluster deploy workloads, they need to first verify their runtime environment's security through remote attestation before requesting KMS to assign application-layer data keys to the VM/compute node where the workload resides.
