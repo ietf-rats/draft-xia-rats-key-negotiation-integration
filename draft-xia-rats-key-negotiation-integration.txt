@@ -2,7 +2,7 @@
 
 
 
-Remote ATtestation procedureS                                     L. Xia
+Remote ATtestation ProcedureS                                     L. Xia
 Internet-Draft                                                  W. Jiang
 Intended status: Standards Track                     Huawei Technologies
 Expires: 5 January 2026                                      4 July 2025
@@ -70,6 +70,7 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
+     1.1.  Requirements Notation
    2.  Integration Scheme
      2.1.  Key Distribution Based on KMS Integrated with Remote
            Attestation
@@ -145,6 +146,14 @@ Table of Contents
    whether for security protocols or application layer encryption; *
    Compared to the complete and systematic implementation of
    AttestedTLS, a more lightweight implementation can be provided.
+
+1.1.  Requirements Notation
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
 
 2.  Integration Scheme
 
@@ -265,6 +274,15 @@ Table of Contents
 7.  References
 
 7.1.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
    [RFC8784]  Fluhrer, S., Kampanakis, P., McGrew, D., and V. Smyslov,
               "Mixing Preshared Keys in the Internet Key Exchange
