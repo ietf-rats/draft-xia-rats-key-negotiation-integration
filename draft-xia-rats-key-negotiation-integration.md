@@ -1,34 +1,34 @@
 ---
+v: 3
+
 title: "Key Negotiation Scheme Integrated into Remote Attestation"
 abbrev: "EESP Stateless Encryption"
-category: std
-
 docname: draft-xia-rats-key-negotiation-integration-latest
-submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
-number:
-date:
+category: std
 consensus: true
-v: 3
+submissiontype: IETF
+
+ipr: trust200902
 area: "Security"
-workgroup: "Remote ATtestation procedureS"
-keyword:
- - RATS
- - attestation
- - key negotiation
+workgroup: "Remote ATtestation ProcedureS"
+keyword: [ RATS, attestation, key negotiation ]
+
+stand_alone: yes
+smart_quotes: no
+pi: [toc, sortrefs, symrefs]
+
 venue:
   group: "Remote ATtestation ProcedureS"
   type: "Working Group"
-  mail: "rats@ietf.org"
-  arch: "https://mailarchive.ietf.org/arch/browse/rats/"
-  github: "ietf-rats/draft-xia-rats-key-negotiation-integration"
+  mail: rats@ietf.org
+  arch: https://mailarchive.ietf.org/arch/browse/rats/
+  github: ietf-rats/draft-xia-rats-key-negotiation-integration
 
 author:
-  -
-    name: Liang Xia
+  - name: Liang Xia
     org: Huawei Technologies
     email: frank.xialiang@huawei.com
-  -
-    name: Weiyu Jiang
+  - name: Weiyu Jiang
     org: Huawei Technologies
     email: jiangweiyu1@huawei.com
 
@@ -66,6 +66,10 @@ In summary, considering the diversity of remote attestation application scenario
 * The key distribution of KMS or E2E key negotiation can be automatically completed based on remote attestation, improving the security of key negotiation;
 * The keys negotiated automatically can be flexibly applied in various ways, whether for security protocols or application layer encryption;
 * Compared to the complete and systematic implementation of AttestedTLS, a more lightweight implementation can be provided.
+
+## Requirements Notation
+
+{::boilerplate bcp14-tagged}
 
 # Integration Scheme
 
