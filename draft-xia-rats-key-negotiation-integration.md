@@ -40,7 +40,11 @@ contributor:
 
 normative:
 
-informative: I-D.fossati-tls-attestation: tls-a1 I-D.fossati-tls-exported-attestation: tls-a2 I-D.ietf-lamps-csr-attestation: csr-a
+informative:
+
+    I-D.fossati-tls-attestation:
+    I-D.fossati-tls-exported-attestation:
+    I-D.ietf-lamps-csr-attestation:
 
 --- abstract
 
@@ -53,7 +57,7 @@ This draft proposes a lightweight security enhancement scheme based on remote at
 Remote attestation is a security mechanism based on trusted hardware (e.g., TPM, TEE), allowing remote verifiers to cryptographically verify the integrity of the target device's software configuration, hardware state, and runtime environment.
 Hence, remote attestation can effectively prove the overall security state of the endpoint.
 Secure channel protocols (e.g., TLS, QUIC, IPSec, SSH) establish end-to-end (E2E) secure channels based on the authentication of the endpoint's legitimate identity and secure key negotiation, ensuring the security of network communication.
-By organically combining remote attestation protocols with secure channel protocols and establishing cryptographic binding between them, it is possible to achieve a logical binding of endpoint security and network security, ensuring dual verification and protection of the identity and state of the endpoint in secure connections. Attested TLS {{-tls-a1}} {{-tls-a2}} is currently an important related work in the industry, and other similar works include binding remote attestation with credential issuance (e.g., certificates {{-csr-a}}, OAuth tokens, etc.) to achieve security enhancement.
+By organically combining remote attestation protocols with secure channel protocols and establishing cryptographic binding between them, it is possible to achieve a logical binding of endpoint security and network security, ensuring dual verification and protection of the identity and state of the endpoint in secure connections. Attested TLS {{I-D.fossati-tls-attestation}} {{I-D.fossati-tls-exported-attestation}} is currently an important related work in the industry, and other similar works include binding remote attestation with credential issuance (e.g., certificates {{I-D.ietf-lamps-csr-attestation}}, OAuth tokens, etc.) to achieve security enhancement.
 
 However, in some scenarios, the above binding may not be possible.
 For example:
