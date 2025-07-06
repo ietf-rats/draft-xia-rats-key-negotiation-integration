@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>Key Negotiation Scheme Integrated into Remote Attestation</title>
+<title>Integration of Remote Attestation with Key Negotiation and Distribution</title>
 <meta content="Liang Xia" name="author">
 <meta content="Weiyu Jiang" name="author">
 <meta content="Muhammad Usama Sardar" name="author">
 <meta content="
-       This draft proposes a lightweight security enhancement scheme based on remote attestation—key negotiation integrated into remote attestation. Organically integrating the key steps of E2E key negotiation into the remote attestation process provide more secure and flexibility. 
+       This draft proposes a lightweight security enhancement scheme based on remote attestation—key negotiation integrated into remote attestation. Organically integrating the main steps of end-to-end key negotiation into the remote attestation process may provide more security and flexibility. 
     " name="description">
 <meta content="xml2rfc 3.29.0" name="generator">
 <meta content="RATS" name="keyword">
@@ -1088,10 +1088,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
 </dl>
 </div>
-<h1 id="title">Key Negotiation Scheme Integrated into Remote Attestation</h1>
+<h1 id="title">Integration of Remote Attestation with Key Negotiation and Distribution</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This draft proposes a lightweight security enhancement scheme based on remote attestation—key negotiation integrated into remote attestation. Organically integrating the key steps of E2E key negotiation into the remote attestation process provide more secure and flexibility.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This draft proposes a lightweight security enhancement scheme based on remote attestation—key negotiation integrated into remote attestation. Organically integrating the main steps of end-to-end key negotiation into the remote attestation process may provide more security and flexibility.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1185,21 +1185,24 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-privacy-considerations" class="internal xref">Privacy Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-references" class="internal xref">References</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
-                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.2">
+                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1229,10 +1232,18 @@ The user may only need to complete E2E key negotiation based on remote attestati
 As for which secure protocol or application layer encryption the negotiated key is used for, and how it is used, there can be various implementation methods.<a href="#section-1-3.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-1-4">In summary, considering the diversity of remote attestation application scenarios and the limitations or complexity of combining with security protocols, this draft proposes a lightweight security enhancement scheme based on remote attestation—key negotiation integrated into remote attestation. By organically integrating the key steps of E2E key negotiation into the remote attestation process, the following can be achieved:
-* The key distribution of KMS or E2E key negotiation can be automatically completed based on remote attestation, improving the security of key negotiation;
-* The keys negotiated automatically can be flexibly applied in various ways, whether for secure protocols or application layer encryption;
-* Compared to the complete and systematic implementation of Attested TLS, a more lightweight implementation can be provided.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-4">In summary, considering the diversity of remote attestation application scenarios and the limitations or complexity of combining with security protocols, this draft proposes a lightweight security enhancement scheme based on remote attestation—key negotiation integrated into remote attestation. By organically integrating the key steps of E2E key negotiation into the remote attestation process, the following can be achieved:<a href="#section-1-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1-5.1">
+          <p id="section-1-5.1.1">The key distribution of KMS or E2E key negotiation can be automatically completed based on remote attestation, improving the security of key negotiation;<a href="#section-1-5.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.2">
+          <p id="section-1-5.2.1">The keys negotiated automatically can be flexibly applied in various ways, whether for secure protocols or application layer encryption;<a href="#section-1-5.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.3">
+          <p id="section-1-5.3.1">Compared to the complete and systematic implementation of Attested TLS, a more lightweight implementation can be provided.<a href="#section-1-5.3.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
 <div id="requirements-notation">
 <section id="section-1.1">
         <h3 id="name-requirements-notation">
@@ -1251,6 +1262,7 @@ appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">�
       <h2 id="name-integration-scheme">
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-integration-scheme" class="section-name selfRef">Integration Scheme</a>
       </h2>
+<p id="section-2-1">The current specification is based on passport model of RATS. Future versions of specification will include the background-check model. We present two integration schemes:<a href="#section-2-1" class="pilcrow">¶</a></p>
 <div id="key-distribution-based-on-kms-integrated-with-remote-attestation">
 <section id="section-2.1">
         <h3 id="name-key-distribution-based-on-k">
@@ -1263,20 +1275,20 @@ Furthermore, the method of integrating key distribution into the remote attestat
 <figure id="figure-1">
           <div class="alignLeft art-text artwork" id="section-2.1-2.1">
 <pre>
-      .------------.
-      |            | Compare Evidence
-      |  Verifier  | against appraisal policy
-      |            |
-      '--------+---'
-          ^    |
- Evidence |    | Attestation
-          |    | Result
-          |    v
-      .---+--------.              .-------------.
-      |            +-------------&gt;|   Relying   | Compare Attestation
-      |  Attester  | Attestation  |    Party    | Result against
-      |            | Result       |    &amp; KMS    | appraisal policy
-      '------------' + SK/ASK/ESK '-------------' + Distribute Keys
+        .------------.
+        |            | Compare Evidence
+        |  Verifier  | against appraisal policy
+        |            |
+        '--------+---'
+            ^    |
+1. Evidence |    | 2. Attestation
+            |    | Result
+            |    v
+        .---+--------.                .-------------.
+        |            +---------------&gt;|   Relying   | 4. Compare Attestation
+        |  Attester  |3. Attestation  |    Party    | Result against
+        |            |   Result       |    &amp; KMS    | appraisal policy
+        '------------' + SK/ASK/ESK   '-------------' + Distribute Keys
 
 SK：Symmetric Key
 ASK：Asymmetric Key
@@ -1287,7 +1299,7 @@ ESK：Encrypted Symmetric Key
 <a href="#name-key-distribution-based-on-km" class="selfRef">Key Distribution Based on KMS Integrated with Remote Attestation</a>
           </figcaption></figure>
 </div>
-<p id="section-2.1-3">In the standard remote attestation process described above, the Attester can generate and provide / request the Attester's application layer SK / ASK / ESK keys in the result returned to the KMS.
+<p id="section-2.1-3">In the standard remote attestation process described above, the Attester can generate and provide/request the Attester's application layer SK/ASK/ESK keys in the result returned to the KMS.
 The KMS can generate or distribute these keys accordingly. During key rotation, the KMS can proactively trigger the above process to complete the update and rotation of the new and old keys.<a href="#section-2.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1301,31 +1313,35 @@ The KMS can generate or distribute these keys accordingly. During key rotation, 
 <figure id="figure-2">
           <div class="alignLeft art-text artwork" id="section-2.2-2.1">
 <pre>
-      .------------.
-      |            | Compare Evidence
-      |  Verifier  | against appraisal policy
-      |            |
-      '--------+---'
-          ^    |
- Evidence |    | Attestation
-          |    | Result
-          |    v     Attestation
-      .---+--------. Request + Q_A.-------------.
-      |  Attester  &lt;-------------&gt;|   Relying   | Compare Attestation
-      |  &amp;Server   | Attestation  |    Party    | Result against
-      |            | Result       |    &amp; Client | appraisal policy
-      '------------' + Q_B        '-------------' + S = d_A * Q_B
-       S = d_B * Q_A
+       .------------.
+       |            | Compare Evidence
+       |  Verifier  | against appraisal policy
+       |            |
+       '--------+---'
+           ^    |
+3 Evidence |    | 4. Attestation
+           |    | Result
+           |    v     1. Attestation
+      .---+--------. Request + pubC.-------------.
+      |  Attester  &lt;--------------&gt;|   Relying   | 6. Compare Attestation
+      |  &amp; Server  | 5.Attestation |    Party    | Result against
+      |            | Result        |    &amp; Client | appraisal policy
+      '------------' + pubS        '-------------' + SK = privC * pubS
+    2. SK = privS * pubC
+
+SK：Symmetric Key
+(privC,pubC): Client's ECDHE key pair
+(privS,pubS): Server's ECDHE key pair
 </pre>
 </div>
 <figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
 <a href="#name-integrating-e2e-key-negotiat" class="selfRef">Integrating E2E Key Negotiation Into Remote Attestation</a>
           </figcaption></figure>
 </div>
-<p id="section-2.2-3">In the standard remote attestation process described above, the Client includes the public key Q_A from its dynamically generated ECDHE key pair (Q_A, d_A) in the remote attestation request message, while retaining its private key d_A.
-Upon receiving Q_A, the Server can compute the symmetric key S using its private key d_B from its dynamically generated ECDHE key pair (Q_B, d_B).
-After completing the remote attestation with the Verifier, the Server includes its Q_B in the Attestation Result returned to the Client.
-Once the Client verifies the Attestation Result, it can compute the symmetric key S using Q_B and its own private key d_A, thereby completing both the attestation and ECDHE key agreement.<a href="#section-2.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.2-3">In the standard remote attestation process described above, the Client includes the public key pubC from its dynamically generated ECDHE key pair (privC, pubC) in the remote attestation request message, while retaining its private key privC.
+Upon receiving pubC, the Server can compute the symmetric key SK using its private key privS from its dynamically generated ECDHE key pair (privS, pubS).
+After completing the remote attestation with the Verifier, the Server includes its pubS in the Attestation Result returned to the Client.
+Once the Client verifies the Attestation Result, it can compute the symmetric key SK using pubS and its own private key privC, thereby completing both the remote attestation and ECDHE key agreement.<a href="#section-2.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1340,10 +1356,10 @@ If the negotiated key is used for application layer encryption, its specific usa
 When the key is used for the security protocols, such as TLS, IPSec, etc., there are at least the following binding methods:<a href="#section-3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3-2.1">
-          <p id="section-3-2.1.1">TLS: The negotiated key can be used as a pre-shared key for subsequent TLS handshakes; the key can also be used as an externally imported shared key to participate in TLS Hybrid key exchange<span>[<a href="#I-D.ietf-tls-hybrid-design" class="cite xref">I-D.ietf-tls-hybrid-design</a>]</span>;<a href="#section-3-2.1.1" class="pilcrow">¶</a></p>
+          <p id="section-3-2.1.1">TLS: The negotiated key can be used as a pre-shared key for subsequent TLS handshakes; the key can also be used as an externally imported shared key to participate in TLS Hybrid key exchange <span>[<a href="#I-D.ietf-tls-hybrid-design" class="cite xref">I-D.ietf-tls-hybrid-design</a>]</span>;<a href="#section-3-2.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-2.2">
-          <p id="section-3-2.2.1">IPSec: The negotiated key can be used as a pre-shared key for subsequent IKEv2 handshakes; or the key can be directly used as a session key for data plane encryption and integrity protection in IPSec ESP; or the key can also be used as Post-quantum Preshared Keys (PPKs)<span>[<a href="#RFC8784" class="cite xref">RFC8784</a>]</span> to achieve binding with the IPSec protocol.<a href="#section-3-2.2.1" class="pilcrow">¶</a></p>
+          <p id="section-3-2.2.1">IPSec: The negotiated key can be used as a pre-shared key for subsequent IKEv2 handshakes; or the key can be directly used as a session key for data plane encryption and integrity protection in IPSec ESP; or the key can also be used as Post-quantum Preshared Keys (PPKs) <span>[<a href="#RFC8784" class="cite xref">RFC8784</a>]</span> to achieve binding with the IPSec protocol.<a href="#section-3-2.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 </section>
@@ -1362,26 +1378,35 @@ When the key is used for the security protocols, such as TLS, IPSec, etc., there
       <h2 id="name-security-considerations">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-5-1">TBD<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">Risk of relay attacks needs to be evaluated in the design.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">TBD<a href="#section-5-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="iana-considerations">
+<div id="privacy-considerations">
 <section id="section-6">
-      <h2 id="name-iana-considerations">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+      <h2 id="name-privacy-considerations">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-privacy-considerations" class="section-name selfRef">Privacy Considerations</a>
       </h2>
 <p id="section-6-1">TBD<a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="sec-combined-references">
+<div id="iana-considerations">
 <section id="section-7">
+      <h2 id="name-iana-considerations">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+      </h2>
+<p id="section-7-1">TBD<a href="#section-7-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="sec-combined-references">
+<section id="section-8">
       <h2 id="name-references">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
 <div id="sec-normative-references">
-<section id="section-7.1">
+<section id="section-8.1">
         <h3 id="name-normative-references">
-<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
@@ -1400,9 +1425,9 @@ When the key is used for the security protocols, such as TLS, IPSec, etc., there
 </section>
 </div>
 <div id="sec-informative-references">
-<section id="section-7.2">
+<section id="section-8.2">
         <h3 id="name-informative-references">
-<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="I-D.fossati-tls-attestation">[I-D.fossati-tls-attestation]</dt>

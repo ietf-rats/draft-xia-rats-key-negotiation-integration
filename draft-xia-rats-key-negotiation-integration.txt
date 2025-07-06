@@ -10,16 +10,16 @@ Expires: 7 January 2026                                     M. U. Sardar
                                                              6 July 2025
 
 
-       Key Negotiation Scheme Integrated into Remote Attestation
+Integration of Remote Attestation with Key Negotiation and Distribution
            draft-xia-rats-key-negotiation-integration-latest
 
 Abstract
 
    This draft proposes a lightweight security enhancement scheme based
    on remote attestation—key negotiation integrated into remote
-   attestation.  Organically integrating the key steps of E2E key
-   negotiation into the remote attestation process provide more secure
-   and flexibility.
+   attestation.  Organically integrating the main steps of end-to-end
+   key negotiation into the remote attestation process may provide more
+   security and flexibility.
 
 About This Document
 
@@ -80,10 +80,11 @@ Table of Contents
    3.  Use of Negotiated Keys in Different Security Protocols
    4.  Remote Attestation Protocol and Message Extensions
    5.  Security Considerations
-   6.  IANA Considerations
-   7.  References
-     7.1.  Normative References
-     7.2.  Informative References
+   6.  Privacy Considerations
+   7.  IANA Considerations
+   8.  References
+     8.1.  Normative References
+     8.2.  Informative References
    Authors' Addresses
 
 1.  Introduction
@@ -143,13 +144,18 @@ Table of Contents
    enhancement scheme based on remote attestation—key negotiation
    integrated into remote attestation.  By organically integrating the
    key steps of E2E key negotiation into the remote attestation process,
-   the following can be achieved: * The key distribution of KMS or E2E
-   key negotiation can be automatically completed based on remote
-   attestation, improving the security of key negotiation; * The keys
-   negotiated automatically can be flexibly applied in various ways,
-   whether for secure protocols or application layer encryption; *
-   Compared to the complete and systematic implementation of Attested
-   TLS, a more lightweight implementation can be provided.
+   the following can be achieved:
+
+   *  The key distribution of KMS or E2E key negotiation can be
+      automatically completed based on remote attestation, improving the
+      security of key negotiation;
+
+   *  The keys negotiated automatically can be flexibly applied in
+      various ways, whether for secure protocols or application layer
+      encryption;
+
+   *  Compared to the complete and systematic implementation of Attested
+      TLS, a more lightweight implementation can be provided.
 
 1.1.  Requirements Notation
 
@@ -160,6 +166,10 @@ Table of Contents
    capitals, as shown here.
 
 2.  Integration Scheme
+
+   The current specification is based on passport model of RATS.  Future
+   versions of specification will include the background-check model.
+   We present two integration schemes:
 
 2.1.  Key Distribution Based on KMS Integrated with Remote Attestation
 
@@ -174,34 +184,34 @@ Table of Contents
    remote attestation interaction process is shown in the following
    diagram:
 
-         .------------.
-         |            | Compare Evidence
-         |  Verifier  | against appraisal policy
-         |            |
-         '--------+---'
-             ^    |
-    Evidence |    | Attestation
-             |    | Result
-             |    v
-         .---+--------.              .-------------.
-         |            +------------->|   Relying   | Compare Attestation
-         |  Attester  | Attestation  |    Party    | Result against
-         |            | Result       |    & KMS    | appraisal policy
-         '------------' + SK/ASK/ESK '-------------' + Distribute Keys
+        .------------.
+        |            | Compare Evidence
+        |  Verifier  | against appraisal policy
+        |            |
+        '--------+---'
+            ^    |
+1. Evidence |    | 2. Attestation
+            |    | Result
+            |    v
+        .---+--------.                .-------------.
+        |            +--------------->|   Relying   | 4. Compare Attestation
+        |  Attester  |3. Attestation  |    Party    | Result against
+        |            |   Result       |    & KMS    | appraisal policy
+        '------------' + SK/ASK/ESK   '-------------' + Distribute Keys
 
-   SK：Symmetric Key
-   ASK：Asymmetric Key
-   ESK：Encrypted Symmetric Key
+SK：Symmetric Key
+ASK：Asymmetric Key
+ESK：Encrypted Symmetric Key
 
-       Figure 1: Key Distribution Based on KMS Integrated with Remote
-                                Attestation
+    Figure 1: Key Distribution Based on KMS Integrated with Remote
+                             Attestation
 
    In the standard remote attestation process described above, the
-   Attester can generate and provide / request the Attester's
-   application layer SK / ASK / ESK keys in the result returned to the
-   KMS.  The KMS can generate or distribute these keys accordingly.
-   During key rotation, the KMS can proactively trigger the above
-   process to complete the update and rotation of the new and old keys.
+   Attester can generate and provide/request the Attester's application
+   layer SK/ASK/ESK keys in the result returned to the KMS.  The KMS can
+   generate or distribute these keys accordingly.  During key rotation,
+   the KMS can proactively trigger the above process to complete the
+   update and rotation of the new and old keys.
 
 2.2.  Integrating E2E Key Negotiation Into Remote Attestation
 
@@ -209,35 +219,39 @@ Table of Contents
    DHE and ECDHE.  Taking ECDHE as an example, the method of integrating
    it into remote attestation is shown in the following figure:
 
-         .------------.
-         |            | Compare Evidence
-         |  Verifier  | against appraisal policy
-         |            |
-         '--------+---'
-             ^    |
-    Evidence |    | Attestation
-             |    | Result
-             |    v     Attestation
-         .---+--------. Request + Q_A.-------------.
-         |  Attester  <------------->|   Relying   | Compare Attestation
-         |  &Server   | Attestation  |    Party    | Result against
-         |            | Result       |    & Client | appraisal policy
-         '------------' + Q_B        '-------------' + S = d_A * Q_B
-          S = d_B * Q_A
+       .------------.
+       |            | Compare Evidence
+       |  Verifier  | against appraisal policy
+       |            |
+       '--------+---'
+           ^    |
+3 Evidence |    | 4. Attestation
+           |    | Result
+           |    v     1. Attestation
+      .---+--------. Request + pubC.-------------.
+      |  Attester  <-------------->|   Relying   | 6. Compare Attestation
+      |  & Server  | 5.Attestation |    Party    | Result against
+      |            | Result        |    & Client | appraisal policy
+      '------------' + pubS        '-------------' + SK = privC * pubS
+    2. SK = privS * pubC
 
-     Figure 2: Integrating E2E Key Negotiation Into Remote Attestation
+SK：Symmetric Key
+(privC,pubC): Client's ECDHE key pair
+(privS,pubS): Server's ECDHE key pair
+
+  Figure 2: Integrating E2E Key Negotiation Into Remote Attestation
 
    In the standard remote attestation process described above, the
-   Client includes the public key Q_A from its dynamically generated
-   ECDHE key pair (Q_A, d_A) in the remote attestation request message,
-   while retaining its private key d_A.  Upon receiving Q_A, the Server
-   can compute the symmetric key S using its private key d_B from its
-   dynamically generated ECDHE key pair (Q_B, d_B).  After completing
-   the remote attestation with the Verifier, the Server includes its Q_B
-   in the Attestation Result returned to the Client.  Once the Client
-   verifies the Attestation Result, it can compute the symmetric key S
-   using Q_B and its own private key d_A, thereby completing both the
-   attestation and ECDHE key agreement.
+   Client includes the public key pubC from its dynamically generated
+   ECDHE key pair (privC, pubC) in the remote attestation request
+   message, while retaining its private key privC.  Upon receiving pubC,
+   the Server can compute the symmetric key SK using its private key
+   privS from its dynamically generated ECDHE key pair (privS, pubS).
+   After completing the remote attestation with the Verifier, the Server
+   includes its pubS in the Attestation Result returned to the Client.
+   Once the Client verifies the Attestation Result, it can compute the
+   symmetric key SK using pubS and its own private key privC, thereby
+   completing both the remote attestation and ECDHE key agreement.
 
 3.  Use of Negotiated Keys in Different Security Protocols
 
@@ -252,13 +266,13 @@ Table of Contents
    *  TLS: The negotiated key can be used as a pre-shared key for
       subsequent TLS handshakes; the key can also be used as an
       externally imported shared key to participate in TLS Hybrid key
-      exchange[I-D.ietf-tls-hybrid-design];
+      exchange [I-D.ietf-tls-hybrid-design];
 
    *  IPSec: The negotiated key can be used as a pre-shared key for
       subsequent IKEv2 handshakes; or the key can be directly used as a
       session key for data plane encryption and integrity protection in
       IPSec ESP; or the key can also be used as Post-quantum Preshared
-      Keys (PPKs)[RFC8784] to achieve binding with the IPSec protocol.
+      Keys (PPKs) [RFC8784] to achieve binding with the IPSec protocol.
 
 4.  Remote Attestation Protocol and Message Extensions
 
@@ -269,15 +283,21 @@ Table of Contents
 
 5.  Security Considerations
 
-   TBD
-
-6.  IANA Considerations
+   Risk of relay attacks needs to be evaluated in the design.
 
    TBD
 
-7.  References
+6.  Privacy Considerations
 
-7.1.  Normative References
+   TBD
+
+7.  IANA Considerations
+
+   TBD
+
+8.  References
+
+8.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -294,7 +314,7 @@ Table of Contents
               RFC 8784, DOI 10.17487/RFC8784, June 2020,
               <https://www.rfc-editor.org/rfc/rfc8784>.
 
-7.2.  Informative References
+8.2.  Informative References
 
    [I-D.fossati-tls-attestation]
               Tschofenig, H., Sheffer, Y., Howard, P., Mihalcea, I.,
