@@ -1,0 +1,83 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2025-07-06T01:10:38.095140+00:00",
+  "repo": "ietf-rats/draft-xia-rats-key-negotiation-integration",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOPFgiRM6dVTPl",
+      "title": "First pass of intro",
+      "url": "https://github.com/ietf-rats/draft-xia-rats-key-negotiation-integration/pull/1",
+      "state": "MERGED",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Will move sequentially with other updates.",
+      "createdAt": "2025-07-03T20:40:57Z",
+      "updatedAt": "2025-07-04T17:35:56Z",
+      "baseRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
+      "baseRefName": "main",
+      "baseRefOid": "15091331b593ab93a1f8d64ff49891122818a687",
+      "headRepository": "muhammad-usama-sardar/draft-xia-rats-key-negotiation-integration",
+      "headRefName": "main",
+      "headRefOid": "12af46ab333eefb2d3747b48704e79e5529913fc",
+      "closedAt": "2025-07-04T17:35:56Z",
+      "mergedAt": "2025-07-04T17:35:56Z",
+      "mergedBy": "muhammad-usama-sardar",
+      "mergeCommit": {
+        "oid": "1e673e249d576010bf5d0d2d20b5d03a55adcc55"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
