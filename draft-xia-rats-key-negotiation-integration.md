@@ -31,10 +31,18 @@ author:
   - name: Weiyu Jiang
     org: Huawei Technologies
     email: jiangweiyu1@huawei.com
-  -
-    name: Muhammad Usama Sardar
+  - name: Muhammad Usama Sardar
     org: TU Dresden
     email: muhammad_usama.sardar@tu-dresden.de
+  - name: Henk Birkholz
+    org: Fraunhofer SIT
+    email: henk.birkholz@ietf.contact
+  - name: Jun Zhang
+    org: Huawei Technologies France S.A.S.U.
+    email: junzhang1@huawei.com
+  - name: Houda Labiod
+    org: Huawei Technologies France S.A.S.U.
+    email: houda.labiod@huawei.com
 
 contributor:
 
