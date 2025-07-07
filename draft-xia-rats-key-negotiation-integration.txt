@@ -5,9 +5,9 @@
 Remote ATtestation ProcedureS                                     L. Xia
 Internet-Draft                                                  W. Jiang
 Intended status: Standards Track                     Huawei Technologies
-Expires: 7 January 2026                                     M. U. Sardar
+Expires: 8 January 2026                                     M. U. Sardar
                                                               TU Dresden
-                                                             6 July 2025
+                                                             7 July 2025
 
 
 Integration of Remote Attestation with Key Negotiation and Distribution
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 January 2026.
+   This Internet-Draft will expire on 8 January 2026.
 
 Copyright Notice
 
