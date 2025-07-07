@@ -1283,25 +1283,34 @@ appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">�
         <h3 id="name-key-distribution-based-on-k">
 <a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-key-distribution-based-on-k" class="section-name selfRef">Key Distribution Based on KMS Integrated with Remote Attestation</a>
         </h3>
-<p id="section-2.1-1">The KMS mechanism on public cloud networks includes trust root and secure channels, full lifecycle management of keys (including key generation, storage, rotation, and destruction), hierarchical encryption architecture (such as Envelope Encryption), and access control mechanisms.
-KMS enables applications to generate/obtain their own application-layer encryption symmetric/asymmetric keys and distribute these keys between the required applications.
-Furthermore, the method of integrating key distribution into the remote attestation interaction process is shown in the following diagram:<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.1-1">The KMS mechanism on public cloud networks includes the root of trust, secure channels between Attester and KMS, full lifecycle management of keys (including key generation, storage, rotation, and destruction), hierarchical encryption architecture (such as Envelope Encryption), and access control mechanisms.
+There are two cases here:<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2.1-2.1">
+            <p id="section-2.1-2.1.1">Attester generates keys to be distributed to other applications via KMS.<a href="#section-2.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.1-2.2">
+            <p id="section-2.1-2.2.1">Attester obtains keys from the KMS.<a href="#section-2.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-2.1-3">So KMS enables applications to generate/obtain their own application-layer encryption symmetric/asymmetric keys and distribute these keys between the required applications.
+Furthermore, the method of integrating key distribution into the remote attestation interaction process is shown in the following diagram:<a href="#section-2.1-3" class="pilcrow">¶</a></p>
 <span id="name-key-distribution-based-on-km"></span><div id="fig-rats-key-negotiation-integration-kms">
 <figure id="figure-1">
-          <div class="alignLeft art-text artwork" id="section-2.1-2.1">
+          <div class="alignLeft art-text artwork" id="section-2.1-4.1">
 <pre>
         .------------.
-        |            | Compare Evidence
+        |            | 2. Compare Evidence
         |  Verifier  | against appraisal policy
         |            |
         '--------+---'
             ^    |
-1. Evidence |    | 2. Attestation
+1. Evidence |    | 3. Attestation
             |    | Result
             |    v
         .---+--------.                .-------------.
-        |            +---------------&gt;|   Relying   | 4. Compare Attestation
-        |  Attester  |3. Attestation  |    Party    | Result against
+        |            +---------------&gt;|   Relying   | 5. Compare Attestation
+        |  Attester  |4. Attestation  |    Party    | Result against
         |            |   Result       |    &amp; KMS    | appraisal policy
         '------------' + SK/ASK/ESK   '-------------' + Distribute Keys
 
@@ -1314,8 +1323,8 @@ ESK：Encrypted Symmetric Key
 <a href="#name-key-distribution-based-on-km" class="selfRef">Key Distribution Based on KMS Integrated with Remote Attestation</a>
           </figcaption></figure>
 </div>
-<p id="section-2.1-3">In the standard remote attestation process described above, the Attester can generate and provide/request the Attester's application layer SK/ASK/ESK keys in the result returned to the KMS.
-The KMS can generate or distribute these keys accordingly. During key rotation, the KMS can proactively trigger the above process to complete the update and rotation of the new and old keys.<a href="#section-2.1-3" class="pilcrow">¶</a></p>
+<p id="section-2.1-5">In the standard remote attestation process described above, the Attester can generate and provide/request the Attester's application layer SK/ASK/ESK keys in the result returned to the KMS. SK <span class="bcp14">MUST</span> be conveyed over a secure channel.
+The KMS can generate or distribute these keys accordingly. During key rotation, the KMS can proactively trigger the above process to complete the update and rotation of the new and old keys.<a href="#section-2.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="integrating-e2e-key-negotiation-into-remote-attestation">
@@ -1329,17 +1338,17 @@ The KMS can generate or distribute these keys accordingly. During key rotation, 
           <div class="alignLeft art-text artwork" id="section-2.2-2.1">
 <pre>
        .------------.
-       |            | Compare Evidence
+       |            | 4. Compare Evidence
        |  Verifier  | against appraisal policy
        |            |
        '--------+---'
            ^    |
-3 Evidence |    | 4. Attestation
+3 Evidence |    | 5. Attestation
            |    | Result
            |    v     1. Attestation
       .---+--------. Request + pubC.-------------.
-      |  Attester  &lt;--------------&gt;|   Relying   | 6. Compare Attestation
-      |  &amp; Server  | 5.Attestation |    Party    | Result against
+      |  Attester  &lt;--------------&gt;|   Relying   | 7. Compare Attestation
+      |  &amp; Server  | 6.Attestation |    Party    | Result against
       |            | Result        |    &amp; Client | appraisal policy
       '------------' + pubS        '-------------' + SK = privC * pubS
     2. SK = privS * pubC

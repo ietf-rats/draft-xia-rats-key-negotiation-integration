@@ -178,29 +178,36 @@ Table of Contents
 
 2.1.  Key Distribution Based on KMS Integrated with Remote Attestation
 
-   The KMS mechanism on public cloud networks includes trust root and
-   secure channels, full lifecycle management of keys (including key
-   generation, storage, rotation, and destruction), hierarchical
-   encryption architecture (such as Envelope Encryption), and access
-   control mechanisms.  KMS enables applications to generate/obtain
-   their own application-layer encryption symmetric/asymmetric keys and
-   distribute these keys between the required applications.
-   Furthermore, the method of integrating key distribution into the
-   remote attestation interaction process is shown in the following
-   diagram:
+   The KMS mechanism on public cloud networks includes the root of
+   trust, secure channels between Attester and KMS, full lifecycle
+   management of keys (including key generation, storage, rotation, and
+   destruction), hierarchical encryption architecture (such as Envelope
+   Encryption), and access control mechanisms.  There are two cases
+   here:
+
+   *  Attester generates keys to be distributed to other applications
+      via KMS.
+
+   *  Attester obtains keys from the KMS.
+
+   So KMS enables applications to generate/obtain their own application-
+   layer encryption symmetric/asymmetric keys and distribute these keys
+   between the required applications.  Furthermore, the method of
+   integrating key distribution into the remote attestation interaction
+   process is shown in the following diagram:
 
         .------------.
-        |            | Compare Evidence
+        |            | 2. Compare Evidence
         |  Verifier  | against appraisal policy
         |            |
         '--------+---'
             ^    |
-1. Evidence |    | 2. Attestation
+1. Evidence |    | 3. Attestation
             |    | Result
             |    v
         .---+--------.                .-------------.
-        |            +--------------->|   Relying   | 4. Compare Attestation
-        |  Attester  |3. Attestation  |    Party    | Result against
+        |            +--------------->|   Relying   | 5. Compare Attestation
+        |  Attester  |4. Attestation  |    Party    | Result against
         |            |   Result       |    & KMS    | appraisal policy
         '------------' + SK/ASK/ESK   '-------------' + Distribute Keys
 
@@ -213,10 +220,11 @@ ESK：Encrypted Symmetric Key
 
    In the standard remote attestation process described above, the
    Attester can generate and provide/request the Attester's application
-   layer SK/ASK/ESK keys in the result returned to the KMS.  The KMS can
-   generate or distribute these keys accordingly.  During key rotation,
-   the KMS can proactively trigger the above process to complete the
-   update and rotation of the new and old keys.
+   layer SK/ASK/ESK keys in the result returned to the KMS.  SK MUST be
+   conveyed over a secure channel.  The KMS can generate or distribute
+   these keys accordingly.  During key rotation, the KMS can proactively
+   trigger the above process to complete the update and rotation of the
+   new and old keys.
 
 2.2.  Integrating E2E Key Negotiation Into Remote Attestation
 
@@ -225,17 +233,17 @@ ESK：Encrypted Symmetric Key
    it into remote attestation is shown in the following figure:
 
        .------------.
-       |            | Compare Evidence
+       |            | 4. Compare Evidence
        |  Verifier  | against appraisal policy
        |            |
        '--------+---'
            ^    |
-3 Evidence |    | 4. Attestation
+3 Evidence |    | 5. Attestation
            |    | Result
            |    v     1. Attestation
       .---+--------. Request + pubC.-------------.
-      |  Attester  <-------------->|   Relying   | 6. Compare Attestation
-      |  & Server  | 5.Attestation |    Party    | Result against
+      |  Attester  <-------------->|   Relying   | 7. Compare Attestation
+      |  & Server  | 6.Attestation |    Party    | Result against
       |            | Result        |    & Client | appraisal policy
       '------------' + pubS        '-------------' + SK = privC * pubS
     2. SK = privS * pubC
