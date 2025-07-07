@@ -7,6 +7,11 @@ Internet-Draft                                                  W. Jiang
 Intended status: Standards Track                     Huawei Technologies
 Expires: 8 January 2026                                     M. U. Sardar
                                                               TU Dresden
+                                                             H. Birkholz
+                                                          Fraunhofer SIT
+                                                                J. Zhang
+                                                               H. Labiod
+                                     Huawei Technologies France S.A.S.U.
                                                              7 July 2025
 
 
@@ -363,3 +368,18 @@ Authors' Addresses
    Muhammad Usama Sardar
    TU Dresden
    Email: muhammad_usama.sardar@tu-dresden.de
+
+
+   Henk Birkholz
+   Fraunhofer SIT
+   Email: henk.birkholz@ietf.contact
+
+
+   Jun Zhang
+   Huawei Technologies France S.A.S.U.
+   Email: junzhang1@huawei.com
+
+
+   Houda Labiod
+   Huawei Technologies France S.A.S.U.
+   Email: houda.labiod@huawei.com
