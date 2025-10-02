@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-09-30T00:58:47.977130+00:00",
+  "timestamp": "2025-10-02T00:57:03.509131+00:00",
   "repo": "ietf-rats/draft-xia-rats-key-negotiation-integration",
   "labels": [
     {
@@ -76,6 +76,32 @@
       "mergeCommit": {
         "oid": "1e673e249d576010bf5d0d2d20b5d03a55adcc55"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOPFgiRM6rQJN0",
+      "title": "-01 version initial update",
+      "url": "https://github.com/ietf-rats/draft-xia-rats-key-negotiation-integration/pull/2",
+      "state": "OPEN",
+      "author": "FrankXL",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Hi, this is the initial update of the 01 version, please review and give your comments on it.",
+      "createdAt": "2025-09-30T06:52:00Z",
+      "updatedAt": "2025-09-30T06:52:00Z",
+      "baseRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
+      "baseRefName": "main",
+      "baseRefOid": "bc5a0bbc90b5b4f1e84f0868c9ffe0ae0abb1d05",
+      "headRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
+      "headRefName": "FrankXL-patch-1",
+      "headRefOid": "3994e18ca1b700c68ce7ab9b4da384c45c905aa2",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
