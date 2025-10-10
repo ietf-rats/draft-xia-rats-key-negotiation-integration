@@ -3,7 +3,7 @@ v: 3
 
 title: "Integration of Remote Attestation with Key Negotiation and Distribution"
 abbrev: "RATS Key Negotiation Integration"
-docname: draft-xia-rats-key-negotiation-integration-01
+docname: draft-xia-rats-key-negotiation-integration-latest
 category: std
 consensus: true
 submissiontype: IETF
