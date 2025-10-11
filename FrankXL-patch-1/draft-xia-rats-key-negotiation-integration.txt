@@ -155,9 +155,9 @@ Table of Contents
       the TEE.
 
    It is important to note that between the remote attestation and the
-   key negotiation, a key binding mechanism between the attestation
-   result and the attester's identity must be established to prevent
-   diversion attack.
+   key negotiation, a key binding mechanism between the Attestation
+   Result and the Attester's identity (e.g., an Attestation Key
+   Certificate) has to be established to prevent diversion attack.
 
    In summary, considering the diversity of remote attestation
    application scenarios and the limitations or complexity of combining
