@@ -77,7 +77,7 @@ For example, to protect model parameters from leakage and tampering, model weigh
 At this point, there are multiple options for the secure channel protocol that can be established, such as TLS, IPSec, QUIC, OHTTP, etc.
 The user may only need to complete E2E key negotiation based on remote attestation.
 As for which secure protocol or application layer encryption the negotiated key is used for, and how it is used, there can be various implementation methods.
-* Scenario 3: A company intends to deploy its private large model or file system to a public cloud platform. However, for security reasons, it first uploads the encrypted objects to the cloud platform. Subsequently, it needs to conduct a security check on the TEE (Trusted Execution Environment) within the cloud platform's computing environment using remote attestation. Once the security check is passed, the decryption key is sent to decrypt the uploaded objects.
+* Scenario 3: A company intends to deploy its private large model or file system in a public cloud platform's trusted execution environment (TEE). To keep it deployed content confidential, the company first uploads the encrypted objects to the cloud platform. Subsequently, it conducts a security check on the cloud platform's TEE using remote attestation. Once the security check has passed, the decryption key is sent to decrypt the uploaded objects inside the TEE.
 
 It is important to note that between the remote attestation and the key negotiation, a key binding mechanism between the  attestation result and the attester's identity must be established to prevent diversion attack.
 
