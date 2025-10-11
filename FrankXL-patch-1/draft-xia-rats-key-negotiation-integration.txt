@@ -5,14 +5,14 @@
 Remote ATtestation ProcedureS                                     L. Xia
 Internet-Draft                                                  W. Jiang
 Intended status: Standards Track                     Huawei Technologies
-Expires: 13 April 2026                                      M. U. Sardar
+Expires: 14 April 2026                                      M. U. Sardar
                                                               TU Dresden
                                                              H. Birkholz
                                                           Fraunhofer SIT
                                                                 J. Zhang
                                                                H. Labiod
                                      Huawei Technologies France S.A.S.U.
-                                                         10 October 2025
+                                                         11 October 2025
 
 
 Integration of Remote Attestation with Key Negotiation and Distribution
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 April 2026.
+   This Internet-Draft will expire on 14 April 2026.
 
 Copyright Notice
 
@@ -146,13 +146,13 @@ Table of Contents
       there can be various implementation methods.
 
    *  Scenario 3: A company intends to deploy its private large model or
-      file system to a public cloud platform.  However, for security
-      reasons, it first uploads the encrypted objects to the cloud
-      platform.  Subsequently, it needs to conduct a security check on
-      the TEE (Trusted Execution Environment) within the cloud
-      platform's computing environment using remote attestation.  Once
-      the security check is passed, the decryption key is sent to
-      decrypt the uploaded objects.
+      file system in a public cloud platform's trusted execution
+      environment (TEE).  To keep it deployed content confidential, the
+      company first uploads the encrypted objects to the cloud platform.
+      Subsequently, it conducts a security check on the cloud platform's
+      TEE using remote attestation.  Once the security check has passed,
+      the decryption key is sent to decrypt the uploaded objects inside
+      the TEE.
 
    It is important to note that between the remote attestation and the
    key negotiation, a key binding mechanism between the attestation
