@@ -79,7 +79,7 @@ The user may only need to complete E2E key negotiation based on remote attestati
 As for which secure protocol or application layer encryption the negotiated key is used for, and how it is used, there can be various implementation methods.
 * Scenario 3: A company intends to deploy its private large model or file system in a public cloud platform's trusted execution environment (TEE). To keep it deployed content confidential, the company first uploads the encrypted objects to the cloud platform. Subsequently, it conducts a security check on the cloud platform's TEE using remote attestation. Once the security check has passed, the decryption key is sent to decrypt the uploaded objects inside the TEE.
 
-It is important to note that between the remote attestation and the key negotiation, a key binding mechanism between the  attestation result and the attester's identity must be established to prevent diversion attack.
+It is important to note that between the remote attestation and the key negotiation, a key binding mechanism between the Attestation Result and the Attester's identity (e.g., an Attestation Key Certificate) has to be established to prevent diversion attack.
 
 In summary, considering the diversity of remote attestation application scenarios and the limitations or complexity of combining with security protocols, this draft proposes a lightweight security enhancement scheme based on remote attestation—key negotiation integrated into remote attestation. By organically integrating the key steps of E2E key negotiation into the remote attestation process, the following can be achieved:
 
