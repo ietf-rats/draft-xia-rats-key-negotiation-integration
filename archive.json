@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-09T00:58:28.523620+00:00",
+  "timestamp": "2025-10-12T01:00:54.736625+00:00",
   "repo": "ietf-rats/draft-xia-rats-key-negotiation-integration",
   "labels": [
     {
@@ -91,19 +91,721 @@
       "labels": [],
       "body": "Hi, this is the initial update of the 01 version, please review and give your comments on it.",
       "createdAt": "2025-09-30T06:52:00Z",
-      "updatedAt": "2025-09-30T06:52:00Z",
+      "updatedAt": "2025-10-11T01:47:41Z",
       "baseRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
       "baseRefName": "main",
       "baseRefOid": "bc5a0bbc90b5b4f1e84f0868c9ffe0ae0abb1d05",
       "headRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
       "headRefName": "FrankXL-patch-1",
-      "headRefOid": "3994e18ca1b700c68ce7ab9b4da384c45c905aa2",
+      "headRefOid": "9a8fdae4d0743e81ac783235ce026617c10c78e0",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think the draft should clarify the comparison with [Trustee](https://github.com/confidential-containers/trustee).",
+          "createdAt": "2025-10-09T07:31:36Z",
+          "updatedAt": "2025-10-09T07:31:36Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOPFgiRM7FvgTm",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T07:26:04Z",
+          "updatedAt": "2025-10-09T07:26:04Z",
+          "comments": [
+            {
+              "originalPosition": 164,
+              "body": "Since it is removed, what prevents a relay attack in this design?",
+              "createdAt": "2025-10-09T07:26:04Z",
+              "updatedAt": "2025-10-09T07:26:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7Fw_rW",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T09:09:41Z",
+          "updatedAt": "2025-10-09T09:09:41Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "need a reference to diversion attack, such as\r\nhttps://datatracker.ietf.org/meeting/interim-2025-rats-01/materials/slides-interim-2025-rats-01-sessa-identity-crisis-in-attested-tls-for-confidential-computing-00.pdf\r\n\r\nand the corresponding defintion.",
+              "createdAt": "2025-10-09T09:09:41Z",
+              "updatedAt": "2025-10-09T09:09:41Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7FxHc2",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T09:19:09Z",
+          "updatedAt": "2025-10-09T09:19:09Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "in step 3,5 raw public key or certificate needed to be signed",
+              "createdAt": "2025-10-09T09:19:09Z",
+              "updatedAt": "2025-10-09T09:19:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7FxHz7",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T09:19:35Z",
+          "updatedAt": "2025-10-09T09:19:35Z",
+          "comments": [
+            {
+              "originalPosition": 115,
+              "body": "in step 5,6 raw public key or certificate needed to be signed",
+              "createdAt": "2025-10-09T09:19:35Z",
+              "updatedAt": "2025-10-09T09:19:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7FxIHP",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T09:19:56Z",
+          "updatedAt": "2025-10-09T09:19:56Z",
+          "comments": [
+            {
+              "originalPosition": 151,
+              "body": "in step 3,4 raw public key or certificate needed to be signed",
+              "createdAt": "2025-10-09T09:19:56Z",
+              "updatedAt": "2025-10-09T09:19:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7FxMcD",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T09:24:33Z",
+          "updatedAt": "2025-10-09T09:24:33Z",
+          "comments": [
+            {
+              "originalPosition": 164,
+              "body": "The underlying conveyance protocol should provide the protections (like data signature, secure channel, etc) between Attester, Verifier and Relying Party to prevent relay attack. ",
+              "createdAt": "2025-10-09T09:24:33Z",
+              "updatedAt": "2025-10-09T09:24:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7FxfzF",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T09:44:33Z",
+          "updatedAt": "2025-10-09T09:44:33Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "in step 1,3, to use hash of raw public key or certificate, then in step 4, the information because AR+signed hash+raw pub key/certificate",
+              "createdAt": "2025-10-09T09:44:33Z",
+              "updatedAt": "2025-10-09T09:44:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7Fxgqu",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T09:45:31Z",
+          "updatedAt": "2025-10-09T09:45:31Z",
+          "comments": [
+            {
+              "originalPosition": 115,
+              "body": "in step 3,5, to use hash of raw public key or certificate, then in step 6, the information because AR+signed hash+raw pubS",
+              "createdAt": "2025-10-09T09:45:31Z",
+              "updatedAt": "2025-10-09T09:45:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7FxhTd",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T09:46:17Z",
+          "updatedAt": "2025-10-09T09:46:18Z",
+          "comments": [
+            {
+              "originalPosition": 151,
+              "body": "in step 1,3, to use hash of raw public key or certificate, then in step 4, the information because AR+signed hash+raw pub  key/certificate",
+              "createdAt": "2025-10-09T09:46:18Z",
+              "updatedAt": "2025-10-09T09:46:18Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7F2Yis",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T14:47:20Z",
+          "updatedAt": "2025-10-09T14:47:20Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "I can add some text here. Early next week I hope to release a preprint. We can directly reference that then, rather than referencing a presentation.",
+              "createdAt": "2025-10-09T14:47:20Z",
+              "updatedAt": "2025-10-09T14:47:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7F2bMd",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T14:51:05Z",
+          "updatedAt": "2025-10-09T14:51:05Z",
+          "comments": [
+            {
+              "originalPosition": 164,
+              "body": "Conveyance protocol alone cannot prevent relay attack. There has to be binding too. ",
+              "createdAt": "2025-10-09T14:51:05Z",
+              "updatedAt": "2025-10-09T14:51:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7F34om",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T16:31:59Z",
+          "updatedAt": "2025-10-09T16:32:00Z",
+          "comments": [
+            {
+              "originalPosition": 164,
+              "body": "In addition, certain channel binding protocols should be used to establish the connection between the Attester, Verifier, and Relying Party. ",
+              "createdAt": "2025-10-09T16:31:59Z",
+              "updatedAt": "2025-10-09T16:32:00Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7F81YQ",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T01:10:39Z",
+          "updatedAt": "2025-10-10T01:10:39Z",
+          "comments": [
+            {
+              "originalPosition": 164,
+              "body": "Usama, could you first write a section on the threat analysis of relay attacks? ",
+              "createdAt": "2025-10-10T01:10:39Z",
+              "updatedAt": "2025-10-10T01:10:39Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7F85Qz",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T01:18:06Z",
+          "updatedAt": "2025-10-10T01:18:06Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "In fact, in steps 1 and 3, the Attester's identity (raw public key or certificate) each requires signing by the Attester and Verifier's RATS signing keys. I will revise the latest diagram and add textual explanations. ",
+              "createdAt": "2025-10-10T01:18:06Z",
+              "updatedAt": "2025-10-10T01:18:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7F85hQ",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T01:19:13Z",
+          "updatedAt": "2025-10-10T01:19:13Z",
+          "comments": [
+            {
+              "originalPosition": 115,
+              "body": "In fact, in steps 3 and 5, the Attester's identity (raw public key or certificate) each requires signing by the Attester and Verifier's RATS signing keys. I will revise the latest diagram and add textual explanations.",
+              "createdAt": "2025-10-10T01:19:13Z",
+              "updatedAt": "2025-10-10T01:19:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7F85qf",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T01:19:48Z",
+          "updatedAt": "2025-10-10T01:19:48Z",
+          "comments": [
+            {
+              "originalPosition": 151,
+              "body": "In fact, in steps 1 and 3, the Attester's identity (raw public key or certificate) each requires signing by the Attester and Verifier's RATS signing keys. I will revise the latest diagram and add textual explanations.",
+              "createdAt": "2025-10-10T01:19:48Z",
+              "updatedAt": "2025-10-10T01:19:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7F87Wq",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T01:22:45Z",
+          "updatedAt": "2025-10-10T01:22:45Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "What do you mean by signed hash here? What is its purpose? ",
+              "createdAt": "2025-10-10T01:22:45Z",
+              "updatedAt": "2025-10-10T01:22:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7F87k3",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T01:22:56Z",
+          "updatedAt": "2025-10-10T01:22:56Z",
+          "comments": [
+            {
+              "originalPosition": 115,
+              "body": "What do you mean by signed hash here? What is its purpose? ",
+              "createdAt": "2025-10-10T01:22:56Z",
+              "updatedAt": "2025-10-10T01:22:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7F87pR",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T01:23:05Z",
+          "updatedAt": "2025-10-10T01:23:05Z",
+          "comments": [
+            {
+              "originalPosition": 151,
+              "body": "What do you mean by signed hash here? What is its purpose? ",
+              "createdAt": "2025-10-10T01:23:05Z",
+              "updatedAt": "2025-10-10T01:23:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7F_P7H",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T07:18:24Z",
+          "updatedAt": "2025-10-10T07:18:25Z",
+          "comments": [
+            {
+              "originalPosition": 115,
+              "body": "I mean that using the hash(raw public key) reduces the payload to be delivered from Attester to Verifier, and Verifier to the Attester, as actually the Verifier does not appraise it and just sign it. So finally the Attester can send the raw public key, and the Attestation Result to the Relying Party, while the hash of raw public key is inside the signed Attestation Result.\r\n\r\nSo there are two possible options\r\n\r\n1. Raw Public key/Cerificate\r\n2. hash(raw public key/certificate)\r\n\r\nalso, in the option two, when the raw pub key/certificate remains unchanged for the reconnection with the relying party, there is even no need to send the raw public/key from attester to the relying party, as long as the relying party has a cache of the raw public key as it can compare the hash inside the attestation result with the hash of raw public key in its local data set.",
+              "createdAt": "2025-10-10T07:18:24Z",
+              "updatedAt": "2025-10-10T07:18:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GAVfb",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T08:27:53Z",
+          "updatedAt": "2025-10-10T08:27:53Z",
+          "comments": [
+            {
+              "originalPosition": 164,
+              "body": "Sure, but I need some time until the end of next week. I think cutoff is 21st, so we can make it.",
+              "createdAt": "2025-10-10T08:27:53Z",
+              "updatedAt": "2025-10-10T08:27:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GAXQQ",
+          "commit": {
+            "abbreviatedOid": "8873695"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-10T08:29:40Z",
+          "updatedAt": "2025-10-10T08:29:40Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GFEX7",
+          "commit": {
+            "abbreviatedOid": "24609d4"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T12:47:54Z",
+          "updatedAt": "2025-10-10T12:47:54Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "Suggested to add the definition of terms in the section notations as follows\r\n\r\n    Key Binding:  A security protocol mechanism that cryptographically ties the results of a remote attestation to a specific communication session or entity identity. This ensures that the attestation evidence cannot be diverted and used by an attacker to impersonate the prover in a different context. \r\n    Diversion Attack:  A man-in-the-middle attack where an adversary intercepts and forwards attestation messages to trick a verifier into believing that the adversary's session is authenticated. The attacker's goal is to divert the authentication result and the subsequent privileged information (e.g., keys) to itself. Key Binding is the primary defense against this attack.\r\n",
+              "createdAt": "2025-10-10T12:47:54Z",
+              "updatedAt": "2025-10-10T12:47:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GFMpc",
+          "commit": {
+            "abbreviatedOid": "24609d4"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T12:52:46Z",
+          "updatedAt": "2025-10-10T12:52:47Z",
+          "comments": [
+            {
+              "originalPosition": 64,
+              "body": "Is here pubS not equal to Attester's id?",
+              "createdAt": "2025-10-10T12:52:47Z",
+              "updatedAt": "2025-10-10T12:52:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GFXCN",
+          "commit": {
+            "abbreviatedOid": "8873695"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T12:59:31Z",
+          "updatedAt": "2025-10-10T12:59:31Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "```suggestion\r\n* Scenario 3: A company intends to deploy its private large model or file system in a public cloud platform's trusted execution environment (TEE). To keep it deployed content confidential, the company first uploads the encrypted objects to the cloud platform. Subsequently, it conducts a security check on the cloud platform's TEE using remote attestation. Once the security check has passed, the decryption key is sent to decrypt the uploaded objects inside the TEE.\r\n```",
+              "createdAt": "2025-10-10T12:59:31Z",
+              "updatedAt": "2025-10-10T12:59:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GFZQb",
+          "commit": {
+            "abbreviatedOid": "8873695"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T13:00:59Z",
+          "updatedAt": "2025-10-10T13:00:59Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "These changes are just reshuffling a bit of the content. But! The text \"within the cloud platform's computing environment\" is now gone. Was that meant to be different from the TEE? For example, this could also have been the hosting environment in a CSP node, but I could not tell.",
+              "createdAt": "2025-10-10T13:00:59Z",
+              "updatedAt": "2025-10-10T13:00:59Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GFbNA",
+          "commit": {
+            "abbreviatedOid": "8873695"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T13:02:10Z",
+          "updatedAt": "2025-10-10T13:02:10Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\nIt is important to note that between the remote attestation and the key negotiation, a key binding mechanism between the Attestation Result and the Attester's identity (e.g., an Attestation Key Certificate) has to be established to prevent diversion attack.\r\n```",
+              "createdAt": "2025-10-10T13:02:10Z",
+              "updatedAt": "2025-10-10T13:02:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GFclU",
+          "commit": {
+            "abbreviatedOid": "8873695"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T13:02:54Z",
+          "updatedAt": "2025-10-10T13:02:54Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "Does this suggested change retain the intended meaning?",
+              "createdAt": "2025-10-10T13:02:54Z",
+              "updatedAt": "2025-10-10T13:02:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GHmGC",
+          "commit": {
+            "abbreviatedOid": "8873695"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T14:20:16Z",
+          "updatedAt": "2025-10-10T14:20:16Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "For me, it is not clear that, whether putting the attester id into the evidence (or put it into the meta data of evidence), and that of attestation result is already counted as key binding, or another key binding mechanism should be applied.",
+              "createdAt": "2025-10-10T14:20:16Z",
+              "updatedAt": "2025-10-10T14:20:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GLqvY",
+          "commit": {
+            "abbreviatedOid": "24609d4"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T17:29:54Z",
+          "updatedAt": "2025-10-10T17:29:54Z",
+          "comments": [
+            {
+              "originalPosition": 64,
+              "body": "No, `identity` is different from `pubS` (= public key)\r\n",
+              "createdAt": "2025-10-10T17:29:54Z",
+              "updatedAt": "2025-10-10T17:29:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GLzvW",
+          "commit": {
+            "abbreviatedOid": "24609d4"
+          },
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T17:38:38Z",
+          "updatedAt": "2025-10-10T17:38:39Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "@junzhanghw Could you share the source of these definitions?",
+              "createdAt": "2025-10-10T17:38:38Z",
+              "updatedAt": "2025-10-10T17:38:39Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GRUCc",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-11T01:33:16Z",
+          "updatedAt": "2025-10-11T01:33:16Z",
+          "comments": [
+            {
+              "originalPosition": 115,
+              "body": "Understood, using the hash of the raw public key/certificate can be an optimized option, but I'm not sure if this optimization is necessary. What do others think?\r\nIn any case, we can add a description of this option in the text section. Could you update it directly? ",
+              "createdAt": "2025-10-11T01:33:16Z",
+              "updatedAt": "2025-10-11T01:33:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GRUsS",
+          "commit": {
+            "abbreviatedOid": "24609d4"
+          },
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-11T01:38:21Z",
+          "updatedAt": "2025-10-11T01:38:21Z",
+          "comments": [
+            {
+              "originalPosition": 64,
+              "body": "The two are distinct: pubS serves as the material for key negotiation, which is a requirement of the business. The attester's ID plays a role in binding the evidence to the attester's entity identity during the remote attestation process, acting as a security mechanism to prevent diversion attacks. ",
+              "createdAt": "2025-10-11T01:38:21Z",
+              "updatedAt": "2025-10-11T01:38:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GRVoq",
+          "commit": {
+            "abbreviatedOid": "8873695"
+          },
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-11T01:43:15Z",
+          "updatedAt": "2025-10-11T01:43:15Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "Yes, TEE is sufficient and abstract enough, as this scenario is indeed not limited to public clouds. ",
+              "createdAt": "2025-10-11T01:43:15Z",
+              "updatedAt": "2025-10-11T01:43:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GRWAi",
+          "commit": {
+            "abbreviatedOid": "8873695"
+          },
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-11T01:47:31Z",
+          "updatedAt": "2025-10-11T01:47:31Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "> For me, it is not clear that, whether putting the attester id into the evidence (or put it into the meta data of evidence), and that of attestation result is already counted as key binding, or another key binding mechanism should be applied.\r\n\r\n\r\nMy understanding is that it would be more appropriate to place it in the metadata. The previous RATS AR probably did not specifically consider the issue of key binding. ",
+              "createdAt": "2025-10-11T01:47:31Z",
+              "updatedAt": "2025-10-11T01:47:31Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
