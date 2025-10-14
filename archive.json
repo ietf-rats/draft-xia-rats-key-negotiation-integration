@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-12T01:00:54.736625+00:00",
+  "timestamp": "2025-10-14T00:58:22.545780+00:00",
   "repo": "ietf-rats/draft-xia-rats-key-negotiation-integration",
   "labels": [
     {
@@ -91,7 +91,7 @@
       "labels": [],
       "body": "Hi, this is the initial update of the 01 version, please review and give your comments on it.",
       "createdAt": "2025-09-30T06:52:00Z",
-      "updatedAt": "2025-10-11T01:47:41Z",
+      "updatedAt": "2025-10-13T07:15:29Z",
       "baseRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
       "baseRefName": "main",
       "baseRefOid": "bc5a0bbc90b5b4f1e84f0868c9ffe0ae0abb1d05",
@@ -804,8 +804,154 @@
               "updatedAt": "2025-10-11T01:47:31Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GdH8v",
+          "commit": {
+            "abbreviatedOid": "24609d4"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-12T20:29:49Z",
+          "updatedAt": "2025-10-12T20:29:49Z",
+          "comments": [
+            {
+              "originalPosition": 64,
+              "body": "So it seems that including attester id is a general approach to prevent diversion attack (even in the case that key negotiation is not needed).  Do we need to include it explicitly in the information flow, or we can simply mention it in the security consideration section? I prefer to decouple the part to handle diversion attack with the key negotiation inside attestation (which is the main focus of this draft).",
+              "createdAt": "2025-10-12T20:29:49Z",
+              "updatedAt": "2025-10-12T20:29:49Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GdNk6",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-12T21:07:21Z",
+          "updatedAt": "2025-10-12T21:07:21Z",
+          "comments": [
+            {
+              "originalPosition": 115,
+              "body": "I have changed my mind a little bit. So for the first time connection between the Attester and Relying Party, it is better to use the raw public key / certificate directly as you can embed them into the Attestation Result. For the second time/third time while the raw public key/certificate remains unchanged, then you can use the hash of them, as the Relying Party has already the cache of the raw public key/certificate, and it can compare the received hash, with the hash of pub key/certificate in its cache.",
+              "createdAt": "2025-10-12T21:07:21Z",
+              "updatedAt": "2025-10-12T21:07:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GdPFz",
+          "commit": {
+            "abbreviatedOid": "24609d4"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-12T21:12:53Z",
+          "updatedAt": "2025-10-12T21:12:53Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "@muhammad-usama-sardar , i summarize them by my own words as i do not find them in the attested-tls slides, if you can find the official definition and cite the source it will be better. ",
+              "createdAt": "2025-10-12T21:12:53Z",
+              "updatedAt": "2025-10-12T21:12:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GeGrx",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-13T01:20:47Z",
+          "updatedAt": "2025-10-13T01:20:47Z",
+          "comments": [
+            {
+              "originalPosition": 115,
+              "body": "> I have changed my mind a little bit. So for the first time connection between the Attester and Relying Party, it is better to use the raw public key / certificate directly as you can embed them into the Attestation Result. For the second time/third time while the raw public key/certificate remains unchanged, then you can use the hash of them, as the Relying Party has already the cache of the raw public key/certificate, and it can compare the received hash, with the hash of pub key/certificate in its cache.\r\n\r\nyes, this is the right way. Could you add some text about it?",
+              "createdAt": "2025-10-13T01:20:47Z",
+              "updatedAt": "2025-10-13T01:20:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7GeIro",
+          "commit": {
+            "abbreviatedOid": "24609d4"
+          },
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-13T01:27:47Z",
+          "updatedAt": "2025-10-13T01:27:47Z",
+          "comments": [
+            {
+              "originalPosition": 64,
+              "body": "> So it seems that including attester id is a general approach to prevent diversion attack (even in the case that key negotiation is not needed). Do we need to include it explicitly in the information flow, or we can simply mention it in the security consideration section? I prefer to decouple the part to handle diversion attack with the key negotiation inside attestation (which is the main focus of this draft).\r\n\r\nNo, the binding of the attester ID is not only for preventing diversion attacks; the public key in the ID is also used for key distribution in use cases 1 and 3. Therefore, it needs to be explicitly included in the information flow. As for use case 2, the attester ID is indeed only used to prove the binding relationship with the attester result.",
+              "createdAt": "2025-10-13T01:27:47Z",
+              "updatedAt": "2025-10-13T01:27:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOPFgiRM7Gf08d",
+          "commit": {
+            "abbreviatedOid": "3994e18"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-13T07:15:29Z",
+          "updatedAt": "2025-10-13T07:15:29Z",
+          "comments": [
+            {
+              "originalPosition": 115,
+              "body": "I have created one new section \u201cOptimization Considerations\u201d and add some text into it. I have launched the Pull Request for this change.",
+              "createdAt": "2025-10-13T07:15:29Z",
+              "updatedAt": "2025-10-13T07:15:29Z"
+            }
+          ]
         }
       ]
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOPFgiRM6tZQkr",
+      "title": "optimization of the payload by using hash rather than the public key/certificate",
+      "url": "https://github.com/ietf-rats/draft-xia-rats-key-negotiation-integration/pull/3",
+      "state": "OPEN",
+      "author": "junzhanghw",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "\r\n\r\nthis optimization is valid for the latter connection between the Attester and the Relying Party.",
+      "createdAt": "2025-10-13T07:13:57Z",
+      "updatedAt": "2025-10-13T07:13:57Z",
+      "baseRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
+      "baseRefName": "main",
+      "baseRefOid": "bc5a0bbc90b5b4f1e84f0868c9ffe0ae0abb1d05",
+      "headRepository": "junzhanghw/draft-xia-rats-key-negotiation-integration",
+      "headRefName": "junzhanghw-optimization-patch",
+      "headRefOid": "b9557996bd2e5464ba0b8d69fc6c972731b139aa",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
