@@ -203,6 +203,34 @@ This section describes how to extend RATS protocol and message to incorporate ke
 
 TBD
 
+# Implementation Status
+// RFC Editor: please remove this section prior to publication.
+This section records the status of known implementations of the protocol defined by this specification at the time of posting of this Internet-Draft, and is based on a proposal described in [RFC7942]. The description of implementations in this section is intended to assist the IETF in its decision processes in progressing drafts to RFCs.  Please note that the listing of any individual implementation here does not imply endorsement by the IETF.  Furthermore, no effort has been spent to verify the information presented here that was supplied by IETF contributors.  This is not intended as, and must not be construed to be, a catalog of available implementations or their features.  Readers are advised to note that other implementations may exist.
+
+According to {{!RFC7942}}, "this will allow reviewers and working groupsto assign due consideration to documents that have the benefit of running code, which may serve as evidence of valuable experimentation and feedback that have made the implemented protocols more mature. It is up to the individual working groups to use this information as they see fit".
+
+## Trustee
+Responsible Organisation: Trustee (open source project within the Confidential Containers).
+
+Location: https://github.com/confidential-containers/trustee
+
+Description: 
+Trustee contains tools and components for attesting confidential guests and providing secrets to them. Collectively, these components are known as Trustee. Trustee typically operates on behalf of the guest owner and interact remotely with guest components. Trustee components include:
+- Key Broker Service: The KBS is a server that facilitates remote attestation and secret delivery. Its role is similar to that of the Relying Party in the RATS model;
+- Attestation Service: The AS verifies TEE evidence. In the RATS model this is a Verifier;
+- Reference Value Provider Service: The RVPS manages reference values used to verify TEE evidence;
+- KBS Client Tool: This is a simple tool which can be used to test or configure the KBS and AS.
+
+There are two main ways to deploy Trustee: with Docker Compose, on Kubernetes.
+
+Level of Maturity: This is a proof-of-concept prototype implementation.
+
+License: Apache-2.0.
+
+Coverage: This implementation covers most of the aspects of the use case 1 and 3 of this draft.
+
+Contact: Ding Ma, xynnn@linux.alibaba.com
+
 # Security Considerations
 
 TBD
