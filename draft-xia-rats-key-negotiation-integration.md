@@ -53,6 +53,14 @@ informative:
     I-D.fossati-tls-attestation:
     I-D.fossati-tls-exported-attestation:
     I-D.ietf-lamps-csr-attestation:
+    Meeting-122-TLS-Slides:
+     title: "Identity Crisis in Attested TLS for Confidential Computing"
+     date: 20 March 2025,
+     target: https://datatracker.ietf.org/meeting/122/materials/slides-122-tls-identity-crisis-00
+     author:
+     - ins: M. U. Sardar
+     - ins: M. Moustafa
+     - ins: T. Aura
 
 --- abstract
 
@@ -178,9 +186,7 @@ TBD
 
 # Security Considerations
 
-Risk of relay attacks needs to be evaluated in the design.
-
-TBD
+Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent diversion attacks {{Meeting-122-TLS-Slides}}.
 
 # Privacy Considerations
 
