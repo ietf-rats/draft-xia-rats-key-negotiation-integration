@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-16T00:59:27.196471+00:00",
+  "timestamp": "2025-10-19T01:06:12.341857+00:00",
   "repo": "ietf-rats/draft-xia-rats-key-negotiation-integration",
   "labels": [
     {
@@ -49,7 +49,32 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 4,
+      "id": "I_kwDOPFgiRM7SNyfJ",
+      "title": "my suggestions for corrections",
+      "url": "https://github.com/ietf-rats/draft-xia-rats-key-negotiation-integration/issues/4",
+      "state": "OPEN",
+      "author": "hlabiod",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "1. title of the draft: I propose \" Integration of Remote Attestation with Key Negotiation and Key Distribution mechanisms\"\n2. Abstract: I propose\" This draft proposes a lightweight security enhancement scheme based on integration of remote attestation with key negotiation and key distribution\". \n3. Introduction: \n- \"Hence .........of the endpoint\" to be changed with: \"Hence ......of endpoints in a communication\".\n- I suggest to change the word organically by another synonym. \n- in scenario 1, add explicitly AI/ML before model.\n- proposal for the paragraph summarizing the benefits of this integration solution - In summary, this draft introduces the key idea of integrating remote attestation and security mechanisms like key negotiation and key distribution to build less complex, lightweight and enhanced security schemes.  More precisely, the combination of both attestation and security mechanisms brings the followings benefits: 1) ......., 2)...... etc . \n4. Integration scheme \n- ..... on passport model of RATS [RFC xxxx].\n- Integration scheme 1: Key distribution based on KMS integrated with remote attestation \nThe Key Management Service (KMS) for public cloud networks ......, \nthe term attester should be clarified.\nCMK (C?, M?, K?)\ncan we add two flow chart diagrams: one for symmetric case and one for asymmetric case. \ncomment: the figure of the integration should be aligned with the two figures (symmetric and asymmetric cases) . maybe it should follow the same model of presentation (flow chart diagram). \nwe have to say clearly who is the attester. \nAfter the paragraph (In the RATS process ........ old keys), we have to say clearly the advantages of the binding.\nQuestion: RA after key distribution vs. RA with key distribution ?\n- Integration scheme 2: Integration of end-to-end key negotiation with remote attestation \ndd ref for DHE and ECDHE. \nsame question : clarify who is the attester. \nat the end of this part, we have to say clearly the advantages of the integration. \n- Integration scheme 3: Enterprise .....\nwhy this section is not under distribution section?\nI think we have to add the cloud part in the figure to understand all the exchanged flows. \n5. the section of \"use of negoa..... in different secuirty keys\" could be integrated in the Introduction Section to enhance the motivation of the draft.  \n6. I think we do not need to add in this draft details on message details, etc ... \n7. we have to add security and privacy considerations. ",
+      "createdAt": "2025-10-17T16:41:55Z",
+      "updatedAt": "2025-10-18T19:48:12Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> we have to add security and privacy considerations.\n\nAgree, I can take this part. I have started adding security considerations #5, but that needs a bit more clarity on what we want to achieve. Once the identity crisis work is complete, we can add more details here. ",
+          "createdAt": "2025-10-18T19:48:12Z",
+          "updatedAt": "2025-10-18T19:48:12Z"
+        }
+      ]
+    }
+  ],
   "pulls": [
     {
       "number": 1,
@@ -84,21 +109,21 @@
       "id": "PR_kwDOPFgiRM6rQJN0",
       "title": "-01 version initial update",
       "url": "https://github.com/ietf-rats/draft-xia-rats-key-negotiation-integration/pull/2",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "FrankXL",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Hi, this is the initial update of the 01 version, please review and give your comments on it.",
       "createdAt": "2025-09-30T06:52:00Z",
-      "updatedAt": "2025-10-15T02:17:38Z",
+      "updatedAt": "2025-10-18T19:29:32Z",
       "baseRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
       "baseRefName": "main",
       "baseRefOid": "bc5a0bbc90b5b4f1e84f0868c9ffe0ae0abb1d05",
       "headRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
       "headRefName": "FrankXL-patch-1",
-      "headRefOid": "27769abeaadb38f1decd18cd4c18ed3def527804",
-      "closedAt": null,
+      "headRefOid": "4a12b9162bcd3a811b25bdb168433ce783979d3b",
+      "closedAt": "2025-10-17T05:46:05Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -109,6 +134,13 @@
           "body": "I think the draft should clarify the comparison with [Trustee](https://github.com/confidential-containers/trustee).",
           "createdAt": "2025-10-09T07:31:36Z",
           "updatedAt": "2025-10-09T07:31:36Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Did you close it by mistake?",
+          "createdAt": "2025-10-18T19:29:32Z",
+          "updatedAt": "2025-10-18T19:29:32Z"
         }
       ],
       "reviews": [
@@ -946,6 +978,32 @@
       "headRepository": "junzhanghw/draft-xia-rats-key-negotiation-integration",
       "headRefName": "junzhanghw-optimization-patch",
       "headRefOid": "b9557996bd2e5464ba0b8d69fc6c972731b139aa",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDOPFgiRM6udxU6",
+      "title": "Security considerations",
+      "url": "https://github.com/ietf-rats/draft-xia-rats-key-negotiation-integration/pull/5",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-18T19:40:38Z",
+      "updatedAt": "2025-10-18T19:41:27Z",
+      "baseRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
+      "baseRefName": "main",
+      "baseRefOid": "bc5a0bbc90b5b4f1e84f0868c9ffe0ae0abb1d05",
+      "headRepository": "muhammad-usama-sardar/draft-xia-rats-key-negotiation-integration",
+      "headRefName": "main",
+      "headRefOid": "a0c565a0ce76e032dad2e44e85e2107e5358fa1a",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
