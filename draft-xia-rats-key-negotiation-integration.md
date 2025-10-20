@@ -140,6 +140,7 @@ The following diagram shows the method of integrating key distribution into the 
 {: #fig-rats-key-negotiation-integration-cloud-kms title="Public Cloud KMS Key Distribution Integrated Scheme on Passport Model of RATS"}
 
 In the standard remote attestation process described above, the Attester, which is an application in TEE, can request the Attester's application layer keys after providing its attestation result to the KMS. By including the attester's identity (raw public key or certificate) in the messages throughout the remote attestation process and having the attester (using its attestation evidence signing key) and verifier (using its attestation result signing key) endorse and sign it, a key binding mechanism between the attester's attestation result and its identity is implemented. Subsequently, the KMS can use the identity's public key for key distribution, ensuring that the keys are distributed to the correct attester, thereby eliminating the risk of diversion attacks. During key rotation, the KMS can proactively trigger this process to update and rotate the new and old keys. 
+
 Overall, the above approach integrates end-to-end key distribution correctly into the remote attestation process, achieving automation of key distribution and higher security guarantees based on the security of attester endpoint.
 
 ## Integrating E2E Key Negotiation Into Remote Attestation
@@ -175,6 +176,7 @@ At the same time, by including the Attester's identity (raw public key or certif
 After completing the remote attestation with the Verifier, the Server includes its pubS in the attestation result returned to the Client.
 Once the Client has verified the attestation result, it can compute the symmetric key SK using pubS and its own private key privC, thereby completing both the remote attestation and the ECDHE key agreement. The Client can also record the relationship between the generated SK and the corresponding Attester's identity. This ensures that the SK is subsequently used to establish a secure protocol connection with an Attester possessing the correct identity.
 Some of the metadata negotiated alongside the key exchange materials includes the session ID, nonce and algorithm.
+
 Overall, the above approach integrates end-to-end key negotiation correctly into the remote attestation process, achieving automation of key negotiation and higher security guarantees based on the security of attester endpoint.
 
 ## Enterprise Customer Key Distribution to Public Cloud Into Remote Attestation
@@ -203,6 +205,7 @@ Enterprises need to deploy data assets, such as data, applications and systems, 
 {: #fig-rats-key-negotiation-integration-enterprise-kms title="Enterprise KMS Key Distribution Integrated with Remote Attestation Passport Model Interaction"}
 
 By including the Attester's identity (raw public key or certificate) in the messages throughout the remote attestation process and having the Attester (using its attestation evidence signing key) and Verifier (using its attestation result signing key) endorse and sign it, a key binding mechanism between the attester's attestation result and its identity is implemented. Subsequently, the enterprise KMS can use the identity's public key for key distribution, ensuring that the keys are distributed to the correct attester, thereby eliminating the risk of diversion attacks. During key rotation, the enterprise KMS can proactively trigger this process to update and rotate of the new and old keys.
+
 Overall, the above approach integrates end-to-end key distribution correctly into the remote attestation process, achieving automation of key distribution and higher security guarantees based on the security of attester endpoint.
 
 
@@ -216,7 +219,6 @@ TBD
 // RFC Editor: please remove this section prior to publication.
 This section records the status of known implementations of the protocol defined by this specification at the time of posting of this Internet-Draft, and is based on a proposal described in [RFC7942]. The description of implementations in this section is intended to assist the IETF in its decision processes in progressing drafts to RFCs.  Please note that the listing of any individual implementation here does not imply endorsement by the IETF.  Furthermore, no effort has been spent to verify the information presented here that was supplied by IETF contributors.  This is not intended as, and must not be construed to be, a catalog of available implementations or their features.  Readers are advised to note that other implementations may exist.
 
-Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent diversion attacks {{Meeting-122-TLS-Slides}}.
 According to {{!RFC7942}}, "this will allow reviewers and working groupsto assign due consideration to documents that have the benefit of running code, which may serve as evidence of valuable experimentation and feedback that have made the implemented protocols more mature. It is up to the individual working groups to use this information as they see fit".
 
 ## Trustee
@@ -243,7 +245,7 @@ Contact: Ding Ma, xynnn@linux.alibaba.com
 
 # Security Considerations
 
-To prevent diversion attacks, it is important that a key binding mechanism is established between the attestation result and the attester's identity (its raw public key or certificate) during the whole process of integrating key distribution/negotiation into the remote attestation.
+Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent diversion attacks {{Meeting-122-TLS-Slides}}.
 
 # Privacy Considerations
 
