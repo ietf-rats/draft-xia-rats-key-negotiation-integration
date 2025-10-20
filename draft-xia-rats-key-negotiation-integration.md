@@ -1,7 +1,7 @@
 ---
 v: 3
 
-title: "Integration of Remote Attestation with Key Negotiation and Distribution"
+title: "Integration of Remote Attestation with Key Negotiation and Key Distribution mechanisms"
 abbrev: "RATS Key Negotiation Integration"
 docname: draft-xia-rats-key-negotiation-integration-latest
 category: std
@@ -56,30 +56,30 @@ informative:
 
 --- abstract
 
-This draft proposes a lightweight security enhancement scheme based on remote attestation—key negotiation integrated into remote attestation. Organically integrating the main steps of end-to-end key negotiation into the remote attestation process may provide more security and flexibility.
+I propose" This draft proposes a lightweight security enhancement scheme based on integration of remote attestation with key negotiation and key distribution. Correctly integrating the main steps of end-to-end key negotiation into the remote attestation process may provide more security and flexibility.
 
 --- middle
 
 # Introduction {#intro}
 
 Remote attestation is a security mechanism based on trusted hardware (e.g., TPM, TEE) to allow remote verifiers to cryptographically verify the integrity of the target device's software configuration, hardware state, and runtime environment.
-Therefore, remote attestation can effectively demonstrate  the overall security status of the endpoint.
+Therefore, remote attestation can effectively demonstrate the overall security status of endpoints in a communication.
 Secure channel protocols (e.g., TLS, QUIC, IPSec and SSH) establish end-to-end (E2E) secure channels based on the authentication of the endpoint's legitimate identity and secure key negotiation, thereby ensuring the security of network communication.
-Combining remote attestation protocols with secure channel protocols organically and establishing cryptographic binding between them achieves a logical binding of endpoint security and network security. This ensures dual verification and protection of the endpoint's identity and state in secure connections. Attested TLS {{I-D.fossati-tls-attestation}} {{I-D.fossati-tls-exported-attestation}} is currently important related work in the industry. Other similar works include binding remote attestation with credential issuance (e.g., certificates {{I-D.ietf-lamps-csr-attestation}}, OAuth tokens, etc.) to enhance security.
+Combining remote attestation protocols with secure channel protocols correctly and establishing cryptographic binding between them achieves a logical binding of endpoint security and network security. This ensures dual verification and protection of the endpoint's identity and state in secure connections. Attested TLS {{I-D.fossati-tls-attestation}} {{I-D.fossati-tls-exported-attestation}} is currently important related work in the industry. Other similar works include binding remote attestation with credential issuance (e.g., certificates {{I-D.ietf-lamps-csr-attestation}}, OAuth tokens, etc.) to enhance security.
 
 However, in some scenarios, the above binding may not be possible.
 For example:
 
 * Scenario 1: When tenants in a public cloud/compute cluster deploy workloads, they need to first verify the security of their runtime environment through remote attestation before requesting the Key Management Service (KMS) to assign application-layer data keys to the virtual machine (VM)/compute node on which the workload is running.
 These keys are then used for application-layer data encryption, such as file encryption or disk encryption, rather than for any secure channel protocols.
-For example, to protect model parameters from leakage and tampering, for example, model weights and other parameters must be encrypted before transmiting and loading the model to a Trusted Execution Environment (TEE) to ensure that only the TEE with the right the key can decrypts it.
+For example, to protect AI/ML model parameters from leakage and tampering, for example, model weights and other parameters must be encrypted before transmiting and loading the model to a Trusted Execution Environment (TEE) to ensure that only the TEE with the right the key can decrypts it.
 * Scenario 2: The end user/client accesses the online TEE computing environment, submits their data for business processing or large model inference and must ensure the security of the entire computing environment through remote attestation before establishing a secure connection.
 There are multiple options for the secure channel protocol that can be established for this use case, such as TLS, IPSec, QUIC and OHTTP.
 The user may only need to complete end-to-end (E2E) key negotiation based on remote attestation.
 The negotiated key can be used for various implementation methods, depending on which secure protocol or application layer encryption is used.
 * Scenario 3: A company intends to deploy its private large model or file system in the trusted execution environment (TEE) of a public cloud platform. In order to keep the deployed content confidential, the company first uploads the encrypted objects to the cloud platform. It then conducts a security check on the cloud platform's TEE using remote attestation. Once this has been passed, the decryption key is sent to decrypt the uploaded objects inside the TEE.
 
-In summary, given the diversity of remote attestation application scenarios and the limitations or complexity of combining them with security protocols, this draft proposes a lightweight security enhancement scheme based on remote attestation—key negotiation integrated into remote attestation. By organically integrating the key steps of E2E key negotiation into the remote attestation process, the following can be achieved:
+In summary, this draft introduces the idea of integrating remote attestation and security mechanisms like key negotiation and key distribution to build less complex, lightweight and enhanced security schemes. More precisely, the combination of both attestation and security mechanisms brings the followings benefits::
 
 * The key distribution of KMS or E2E key negotiation can be completed automatically based on remote attestation, thereby improving the security of key negotiation.
 * The automatically negotiated keys can be flexibly applied in various ways, whether for secure protocols or application layer encryption.
@@ -102,9 +102,9 @@ The current specification is based on passport model of RATS. Future versions of
 
 ## Public Cloud KMS Key Distribution Integrated with Remote Attestation
 
-The KMS mechanism on public cloud networks includes the root of trust, secure channels between Attester and the KMS, full lifecycle management of keys (including key generation, storage, rotation, and destruction), hierarchical encryption architecture (such as Envelope Encryption), and access control mechanisms. Specifically:
+The Key Management Service (KMS) for public cloud networks includes the root of trust, secure channels between Attester (node, VM, container, service, application) and the KMS, full lifecycle management of keys (including key generation, storage, rotation, and destruction), hierarchical encryption architecture (such as Envelope Encryption), and access control mechanisms. Specifically:
 
-* The basic process for symmetric key distribution and usage is as follows: When an application requires data to be encrypted and shared, it requests the KMS to distribute the DEK (Data Encryption Key) and the EDEK (Encrypted DEK, encrypted using the CMK) to the application via an API. The application then encrypts the data using the DEK, deletes the DEK from memory, and sends the encrypted ciphertext along with the EDEK to the receiving application. The receiving application then requests the KMS to decrypt the EDEK via an API, retrieves the DEK to decrypt the data, and then deletes the DEK from memory.
+* The basic process for symmetric key distribution and usage is as follows: When an application requires data to be encrypted and shared, it requests the KMS to distribute the DEK (Data Encryption Key) and the EDEK (Encrypted DEK, encrypted using the Customer Master Key (CMK) ) to the application via an API. The application then encrypts the data using the DEK, deletes the DEK from memory, and sends the encrypted ciphertext along with the EDEK to the receiving application. The receiving application then requests the KMS to decrypt the EDEK via an API, retrieves the DEK to decrypt the data, and then deletes the DEK from memory.
 * The basic process of asymmetric key distribution and usage is as follows: When an application needs to encrypt data, it requests the KMS to generate a public-private key pair via an API, and then uses the obtained public key to encrypt the data. The encrypted ciphertext is then sent to the receiving application. The receiving application calls the KMS's decryption API and the KMS uses the corresponding private key internally to decrypt the data and return the plaintext to the receiving application. The private key never leaves the KMS.When an application requires digital signing of data, it requests the KMS to generate a public–private key pair via an API. The public key is then distributed to all parties that need to verify the signature. The application then requests the KMS to sign the data using the corresponding private key via an API, and sends the signature result along with the data to the receiving application. The receiving application uses the public key to verify the signature.
 
 In summary, KMS provides the applications with the required deliverables, which include application-layer encryption/authentication, symmetric/asymmetric keys, decrypted plaintext and calculated signatures. For simplicity, the term 'keys' is used here to refer to all these deliverables.
@@ -129,13 +129,14 @@ The following diagram shows the method of integrating key distribution into the 
                            identity                         with Attester's public key
 
 ~~~
-{: #fig-rats-key-negotiation-integration-cloud-kms title="Public Cloud KMS Key Distribution Integrated with Remote Attestation Passport Model Interaction"}
+{: #fig-rats-key-negotiation-integration-cloud-kms title="Public Cloud KMS Key Distribution Integrated Scheme on Passport Model of RATS"}
 
-In the standard remote attestation process described above, the Attester, which is an application in TEE, can request the Attester's application layer keys after providing its attestation result to the KMS. By including the attester's identity (raw public key or certificate) in the messages throughout the remote attestation process and having the attester (using its attestation evidence signing key) and verifier (using its attestation result signing key) endorse and sign it, a key binding mechanism between the attester's attestation result and its identity is implemented. Subsequently, the KMS can use the identity's public key for key distribution, ensuring that the keys are distributed to the correct attester, thereby eliminating the risk of diversion attacks. During key rotation, the KMS can proactively trigger this process to update and rotate the new and old keys.
+In the standard remote attestation process described above, the Attester, which is an application in TEE, can request the Attester's application layer keys after providing its attestation result to the KMS. By including the attester's identity (raw public key or certificate) in the messages throughout the remote attestation process and having the attester (using its attestation evidence signing key) and verifier (using its attestation result signing key) endorse and sign it, a key binding mechanism between the attester's attestation result and its identity is implemented. Subsequently, the KMS can use the identity's public key for key distribution, ensuring that the keys are distributed to the correct attester, thereby eliminating the risk of diversion attacks. During key rotation, the KMS can proactively trigger this process to update and rotate the new and old keys. 
+Overall, the above approach integrates end-to-end key distribution correctly into the remote attestation process, achieving automation of key distribution and higher security guarantees based on the security of attester endpoint.
 
 ## Integrating E2E Key Negotiation Into Remote Attestation
 
-The current main implementation mechanism for E2E key negotiation is DHE and ECDHE. Taking ECDHE as an example, the method of integrating it into remote attestation passport Model process is shown in the following figure:
+The current main implementation mechanism for E2E key negotiation is Diffie-Hellman Ephemeral (DHE) and Elliptic-Curve Diffie-Hellman Ephemeral (ECDHE). Taking ECDHE as an example, the method of integrating it into remote attestation passport Model process is shown in the following figure:
 
 ~~~
            .------------.
@@ -166,6 +167,7 @@ At the same time, by including the Attester's identity (raw public key or certif
 After completing the remote attestation with the Verifier, the Server includes its pubS in the attestation result returned to the Client.
 Once the Client has verified the attestation result, it can compute the symmetric key SK using pubS and its own private key privC, thereby completing both the remote attestation and the ECDHE key agreement. The Client can also record the relationship between the generated SK and the corresponding Attester's identity. This ensures that the SK is subsequently used to establish a secure protocol connection with an Attester possessing the correct identity.
 Some of the metadata negotiated alongside the key exchange materials includes the session ID, nonce and algorithm.
+Overall, the above approach integrates end-to-end key negotiation correctly into the remote attestation process, achieving automation of key negotiation and higher security guarantees based on the security of attester endpoint.
 
 ## Enterprise Customer Key Distribution to Public Cloud Into Remote Attestation
 
@@ -193,6 +195,7 @@ Enterprises need to deploy data assets, such as data, applications and systems, 
 {: #fig-rats-key-negotiation-integration-enterprise-kms title="Enterprise KMS Key Distribution Integrated with Remote Attestation Passport Model Interaction"}
 
 By including the Attester's identity (raw public key or certificate) in the messages throughout the remote attestation process and having the Attester (using its attestation evidence signing key) and Verifier (using its attestation result signing key) endorse and sign it, a key binding mechanism between the attester's attestation result and its identity is implemented. Subsequently, the enterprise KMS can use the identity's public key for key distribution, ensuring that the keys are distributed to the correct attester, thereby eliminating the risk of diversion attacks. During key rotation, the enterprise KMS can proactively trigger this process to update and rotate of the new and old keys.
+Overall, the above approach integrates end-to-end key distribution correctly into the remote attestation process, achieving automation of key distribution and higher security guarantees based on the security of attester endpoint.
 
 
 # Remote Attestation Protocol and Message Extensions
