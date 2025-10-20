@@ -240,6 +240,11 @@ To prevent diversion attacks, it is important that a key binding mechanism is es
 
 TBD
 
+# Optimization Considerations
+
+For the first time connection between the Attester and the Relying Party, embedding the raw public key/certificate inside the Attestation Result is necessary as it simplifies the procedure to delivery of the raw pulbic key/cerficate from the Attester. For the latter connection between this Atterster and the Relying Party, if the raw public key/certificate remains unchanged, the Attester May choose to use the hash of its raw public key/cerficate instead for the Evidence/Attestation Result between itself and the Verifier, and only forward the Attestation Result that contains the hash of hash of its raw public key/cerficate. At the Relying Party side, it compares this hash with the hash of the local cached raw public key/cerficate, and use the corresponding raw public key/cerficate for this session when it matches. This will reduce the payload carried by the Evidence and the Attestation Result. 
+
+
 # IANA Considerations
 
 TBD
