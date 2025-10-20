@@ -56,7 +56,7 @@ informative:
 
 --- abstract
 
-I propose" This draft proposes a lightweight security enhancement scheme based on integration of remote attestation with key negotiation and key distribution. Correctly integrating the main steps of end-to-end key negotiation into the remote attestation process may provide more security and flexibility.
+This draft proposes a lightweight security enhancement scheme based on integration of remote attestation with key negotiation and key distribution. Correctly integrating the main steps of end-to-end key negotiation into the remote attestation process may provide more security and flexibility.
 
 --- middle
 
