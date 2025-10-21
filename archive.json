@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-19T01:06:12.341857+00:00",
+  "timestamp": "2025-10-21T01:00:55.534639+00:00",
   "repo": "ietf-rats/draft-xia-rats-key-negotiation-integration",
   "labels": [
     {
@@ -55,15 +55,15 @@
       "id": "I_kwDOPFgiRM7SNyfJ",
       "title": "my suggestions for corrections",
       "url": "https://github.com/ietf-rats/draft-xia-rats-key-negotiation-integration/issues/4",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "hlabiod",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "1. title of the draft: I propose \" Integration of Remote Attestation with Key Negotiation and Key Distribution mechanisms\"\n2. Abstract: I propose\" This draft proposes a lightweight security enhancement scheme based on integration of remote attestation with key negotiation and key distribution\". \n3. Introduction: \n- \"Hence .........of the endpoint\" to be changed with: \"Hence ......of endpoints in a communication\".\n- I suggest to change the word organically by another synonym. \n- in scenario 1, add explicitly AI/ML before model.\n- proposal for the paragraph summarizing the benefits of this integration solution - In summary, this draft introduces the key idea of integrating remote attestation and security mechanisms like key negotiation and key distribution to build less complex, lightweight and enhanced security schemes.  More precisely, the combination of both attestation and security mechanisms brings the followings benefits: 1) ......., 2)...... etc . \n4. Integration scheme \n- ..... on passport model of RATS [RFC xxxx].\n- Integration scheme 1: Key distribution based on KMS integrated with remote attestation \nThe Key Management Service (KMS) for public cloud networks ......, \nthe term attester should be clarified.\nCMK (C?, M?, K?)\ncan we add two flow chart diagrams: one for symmetric case and one for asymmetric case. \ncomment: the figure of the integration should be aligned with the two figures (symmetric and asymmetric cases) . maybe it should follow the same model of presentation (flow chart diagram). \nwe have to say clearly who is the attester. \nAfter the paragraph (In the RATS process ........ old keys), we have to say clearly the advantages of the binding.\nQuestion: RA after key distribution vs. RA with key distribution ?\n- Integration scheme 2: Integration of end-to-end key negotiation with remote attestation \ndd ref for DHE and ECDHE. \nsame question : clarify who is the attester. \nat the end of this part, we have to say clearly the advantages of the integration. \n- Integration scheme 3: Enterprise .....\nwhy this section is not under distribution section?\nI think we have to add the cloud part in the figure to understand all the exchanged flows. \n5. the section of \"use of negoa..... in different secuirty keys\" could be integrated in the Introduction Section to enhance the motivation of the draft.  \n6. I think we do not need to add in this draft details on message details, etc ... \n7. we have to add security and privacy considerations. ",
       "createdAt": "2025-10-17T16:41:55Z",
-      "updatedAt": "2025-10-18T19:48:12Z",
-      "closedAt": null,
+      "updatedAt": "2025-10-20T08:45:40Z",
+      "closedAt": "2025-10-20T07:23:17Z",
       "comments": [
         {
           "author": "muhammad-usama-sardar",
@@ -71,6 +71,27 @@
           "body": "> we have to add security and privacy considerations.\n\nAgree, I can take this part. I have started adding security considerations #5, but that needs a bit more clarity on what we want to achieve. Once the identity crisis work is complete, we can add more details here. ",
           "createdAt": "2025-10-18T19:48:12Z",
           "updatedAt": "2025-10-18T19:48:12Z"
+        },
+        {
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "body": "all suggested changes have made.",
+          "createdAt": "2025-10-20T07:22:43Z",
+          "updatedAt": "2025-10-20T07:22:43Z"
+        },
+        {
+          "author": "hlabiod",
+          "authorAssociation": "NONE",
+          "body": "Perfect thanks\r\n\r\nFrom: Frank Xia ***@***.***>\r\nSent: Monday, October 20, 2025 9:23 AM\r\nTo: ietf-rats/draft-xia-rats-key-negotiation-integration ***@***.***>\r\nCc: Houda Labiod ***@***.***>; Author ***@***.***>\r\nSubject: Re: [ietf-rats/draft-xia-rats-key-negotiation-integration] my suggestions for corrections (Issue #4)\r\n\r\n[https://avatars.githubusercontent.com/u/16346740?s=20&v=4]FrankXL left a comment (ietf-rats/draft-xia-rats-key-negotiation-integration#4)<https://github.com/ietf-rats/draft-xia-rats-key-negotiation-integration/issues/4#issuecomment-3420889352>\r\n\r\nall suggested changes have made.\r\n\r\n\u2014\r\nReply to this email directly, view it on GitHub<https://github.com/ietf-rats/draft-xia-rats-key-negotiation-integration/issues/4#issuecomment-3420889352>, or unsubscribe<https://github.com/notifications/unsubscribe-auth/BP7GAP7VYQ2RS6D66IU4AJD3YSEVVAVCNFSM6AAAAACJP3VLSSVHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMZTIMRQHA4DSMZVGI>.\r\nYou are receiving this because you authored the thread.Message ID: ***@***.******@***.***>>\r\n",
+          "createdAt": "2025-10-20T08:18:50Z",
+          "updatedAt": "2025-10-20T08:18:50Z"
+        },
+        {
+          "author": "hlabiod",
+          "authorAssociation": "NONE",
+          "body": "> 1. title of the draft: I propose \" Integration of Remote Attestation with Key Negotiation and Key Distribution mechanisms\"\n> 2. Abstract: I propose\" This draft proposes a lightweight security enhancement scheme based on integration of remote attestation with key negotiation and key distribution\".\n> 3. Introduction:\n> \n> * \"Hence .........of the endpoint\" to be changed with: \"Hence ......of endpoints in a communication\".\n> * I suggest to change the word organically by another synonym.\n> * in scenario 1, add explicitly AI/ML before model.\n> * proposal for the paragraph summarizing the benefits of this integration solution - In summary, this draft introduces the key idea of integrating remote attestation and security mechanisms like key negotiation and key distribution to build less complex, lightweight and enhanced security schemes.  More precisely, the combination of both attestation and security mechanisms brings the followings benefits: 1) ......., 2)...... etc .\n> \n> 4. Integration scheme\n> \n> * ..... on passport model of RATS [RFC xxxx].\n> * Integration scheme 1: Key distribution based on KMS integrated with remote attestation\n>   The Key Management Service (KMS) for public cloud networks ......,\n>   the term attester should be clarified.\n>   CMK (C?, M?, K?)\n>   can we add two flow chart diagrams: one for symmetric case and one for asymmetric case.\n>   comment: the figure of the integration should be aligned with the two figures (symmetric and asymmetric cases) . maybe it should follow the same model of presentation (flow chart diagram).\n>   we have to say clearly who is the attester.\n>   After the paragraph (In the RATS process ........ old keys), we have to say clearly the advantages of the binding.\n>   Question: RA after key distribution vs. RA with key distribution ?\n> * Integration scheme 2: Integration of end-to-end key negotiation with remote attestation\n>   dd ref for DHE and ECDHE.\n>   same question : clarify who is the attester.\n>   at the end of this part, we have to say clearly the advantages of the integration.\n> * Integration scheme 3: Enterprise .....\n>   why this section is not under distribution section?\n>   I think we have to add the cloud part in the figure to understand all the exchanged flows.\n> \n> 5. the section of \"use of negoa..... in different secuirty keys\" could be integrated in the Introduction Section to enhance the motivation of the draft.\n> 6. I think we do not need to add in this draft details on message details, etc ...\n> 7. we have to add security and privacy considerations.\n\n",
+          "createdAt": "2025-10-20T08:45:40Z",
+          "updatedAt": "2025-10-20T08:45:40Z"
         }
       ]
     }
@@ -964,50 +985,110 @@
       "id": "PR_kwDOPFgiRM6tZQkr",
       "title": "optimization of the payload by using hash rather than the public key/certificate",
       "url": "https://github.com/ietf-rats/draft-xia-rats-key-negotiation-integration/pull/3",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "junzhanghw",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "\r\n\r\nthis optimization is valid for the latter connection between the Attester and the Relying Party.",
       "createdAt": "2025-10-13T07:13:57Z",
-      "updatedAt": "2025-10-13T07:13:57Z",
+      "updatedAt": "2025-10-20T07:23:49Z",
       "baseRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
       "baseRefName": "main",
       "baseRefOid": "bc5a0bbc90b5b4f1e84f0868c9ffe0ae0abb1d05",
       "headRepository": "junzhanghw/draft-xia-rats-key-negotiation-integration",
       "headRefName": "junzhanghw-optimization-patch",
       "headRefOid": "b9557996bd2e5464ba0b8d69fc6c972731b139aa",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-10-20T07:23:49Z",
+      "mergedAt": "2025-10-20T07:23:49Z",
+      "mergedBy": "FrankXL",
+      "mergeCommit": {
+        "oid": "6dc32ba0770d16e375f6915ec5ec214b3259b2c2"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOPFgiRM7H_N8r",
+          "commit": {
+            "abbreviatedOid": "b955799"
+          },
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-20T07:07:44Z",
+          "updatedAt": "2025-10-20T07:07:44Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 5,
       "id": "PR_kwDOPFgiRM6udxU6",
       "title": "Security considerations",
       "url": "https://github.com/ietf-rats/draft-xia-rats-key-negotiation-integration/pull/5",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "muhammad-usama-sardar",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-10-18T19:40:38Z",
-      "updatedAt": "2025-10-18T19:41:27Z",
+      "updatedAt": "2025-10-20T07:30:58Z",
+      "baseRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
+      "baseRefName": "main",
+      "baseRefOid": "6dc32ba0770d16e375f6915ec5ec214b3259b2c2",
+      "headRepository": "muhammad-usama-sardar/draft-xia-rats-key-negotiation-integration",
+      "headRefName": "main",
+      "headRefOid": "4a74053fb6396e01b32e86dd4fcbca1d94f6e55e",
+      "closedAt": "2025-10-20T07:30:57Z",
+      "mergedAt": "2025-10-20T07:30:57Z",
+      "mergedBy": "FrankXL",
+      "mergeCommit": {
+        "oid": "b2528815501db5920127dc5df441d8744de0492d"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOPFgiRM7H_aC0",
+          "commit": {
+            "abbreviatedOid": "a0c565a"
+          },
+          "author": "FrankXL",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-20T07:28:37Z",
+          "updatedAt": "2025-10-20T07:28:37Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOPFgiRM6ukp8W",
+      "title": "Frank xl patch 1",
+      "url": "https://github.com/ietf-rats/draft-xia-rats-key-negotiation-integration/pull/6",
+      "state": "MERGED",
+      "author": "FrankXL",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-20T07:14:01Z",
+      "updatedAt": "2025-10-20T07:14:38Z",
       "baseRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
       "baseRefName": "main",
       "baseRefOid": "bc5a0bbc90b5b4f1e84f0868c9ffe0ae0abb1d05",
-      "headRepository": "muhammad-usama-sardar/draft-xia-rats-key-negotiation-integration",
-      "headRefName": "main",
-      "headRefOid": "a0c565a0ce76e032dad2e44e85e2107e5358fa1a",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
+      "headRefName": "FrankXL-patch-1",
+      "headRefOid": "8ef032fa29695e9c3f5412db9d48a9103bacf197",
+      "closedAt": "2025-10-20T07:14:38Z",
+      "mergedAt": "2025-10-20T07:14:38Z",
+      "mergedBy": "FrankXL",
+      "mergeCommit": {
+        "oid": "ac7f8674c0df609d19ef44faa6643333c7a4758b"
+      },
       "comments": [],
       "reviews": []
     }
