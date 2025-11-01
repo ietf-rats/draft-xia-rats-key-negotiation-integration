@@ -53,14 +53,7 @@ informative:
     I-D.fossati-tls-attestation:
     I-D.fossati-tls-exported-attestation:
     I-D.ietf-lamps-csr-attestation:
-    Meeting-122-TLS-Slides:
-     title: "Identity Crisis in Attested TLS for Confidential Computing"
-     date: 20 March 2025,
-     target: https://datatracker.ietf.org/meeting/122/materials/slides-122-tls-identity-crisis-00
-     author:
-     - ins: M. U. Sardar
-     - ins: M. Moustafa
-     - ins: T. Aura
+    I-D.rats-sardar-sec-cons:
 
 --- abstract
 
@@ -139,7 +132,7 @@ The following diagram shows the method of integrating key distribution into the 
 ~~~
 {: #fig-rats-key-negotiation-integration-cloud-kms title="Public Cloud KMS Key Distribution Integrated Scheme on Passport Model of RATS"}
 
-In the standard remote attestation process described above, the Attester, which is an application in TEE, can request the Attester's application layer keys after providing its attestation result to the KMS. By including the attester's identity (raw public key or certificate) in the messages throughout the remote attestation process and having the attester (using its attestation evidence signing key) and verifier (using its attestation result signing key) endorse and sign it, a key binding mechanism between the attester's attestation result and its identity is implemented. Subsequently, the KMS can use the identity's public key for key distribution, ensuring that the keys are distributed to the correct attester, thereby eliminating the risk of diversion attacks. During key rotation, the KMS can proactively trigger this process to update and rotate the new and old keys. 
+In the standard remote attestation process described above, the Attester, which is an application in TEE, can request the Attester's application layer keys after providing its attestation result to the KMS. By including the attester's identity (raw public key or certificate) in the messages throughout the remote attestation process and having the attester (using its attestation evidence signing key) and verifier (using its attestation result signing key) endorse and sign it, a key binding mechanism between the attester's attestation result and its identity is implemented. Subsequently, the KMS can use the identity's public key for key distribution, ensuring that the keys are distributed to the correct attester, thereby eliminating the risk of diversion attacks. During key rotation, the KMS can proactively trigger this process to update and rotate the new and old keys.
 
 Overall, the above approach integrates end-to-end key distribution correctly into the remote attestation process, achieving automation of key distribution and higher security guarantees based on the security of attester endpoint.
 
@@ -226,7 +219,7 @@ Responsible Organisation: Trustee (open source project within the Confidential C
 
 Location: https://github.com/confidential-containers/trustee
 
-Description: 
+Description:
 Trustee contains tools and components for attesting confidential guests and providing secrets to them. Collectively, these components are known as Trustee. Trustee typically operates on behalf of the guest owner and interact remotely with guest components. Trustee components include:
 - Key Broker Service: The KBS is a server that facilitates remote attestation and secret delivery. Its role is similar to that of the Relying Party in the RATS model;
 - Attestation Service: The AS verifies TEE evidence. In the RATS model this is a Verifier;
@@ -245,7 +238,7 @@ Contact: Ding Ma, xynnn@linux.alibaba.com
 
 # Security Considerations
 
-Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent diversion attacks {{Meeting-122-TLS-Slides}}.
+Evidence should be cryptographically bound to the identifier provided to the machine by the infrastructure provider to prevent diversion attacks {{I-D.rats-sardar-sec-cons}}.
 
 # Privacy Considerations
 
@@ -253,7 +246,7 @@ TBD
 
 # Optimization Considerations
 
-For the first time connection between the Attester and the Relying Party, embedding the raw public key/certificate inside the Attestation Result is necessary as it simplifies the procedure to delivery of the raw pulbic key/cerficate from the Attester. For the latter connection between this Atterster and the Relying Party, if the raw public key/certificate remains unchanged, the Attester May choose to use the hash of its raw public key/cerficate instead for the Evidence/Attestation Result between itself and the Verifier, and only forward the Attestation Result that contains the hash of hash of its raw public key/cerficate. At the Relying Party side, it compares this hash with the hash of the local cached raw public key/cerficate, and use the corresponding raw public key/cerficate for this session when it matches. This will reduce the payload carried by the Evidence and the Attestation Result. 
+For the first time connection between the Attester and the Relying Party, embedding the raw public key/certificate inside the Attestation Result is necessary as it simplifies the procedure to delivery of the raw pulbic key/cerficate from the Attester. For the latter connection between this Atterster and the Relying Party, if the raw public key/certificate remains unchanged, the Attester May choose to use the hash of its raw public key/cerficate instead for the Evidence/Attestation Result between itself and the Verifier, and only forward the Attestation Result that contains the hash of hash of its raw public key/cerficate. At the Relying Party side, it compares this hash with the hash of the local cached raw public key/cerficate, and use the corresponding raw public key/cerficate for this session when it matches. This will reduce the payload carried by the Evidence and the Attestation Result.
 
 
 # IANA Considerations
