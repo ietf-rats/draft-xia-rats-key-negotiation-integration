@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-21T01:00:55.534639+00:00",
+  "timestamp": "2025-11-02T01:05:32.417270+00:00",
   "repo": "ietf-rats/draft-xia-rats-key-negotiation-integration",
   "labels": [
     {
@@ -1089,6 +1089,32 @@
       "mergeCommit": {
         "oid": "ac7f8674c0df609d19ef44faa6643333c7a4758b"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOPFgiRM6w8IJq",
+      "title": "diversion attack",
+      "url": "https://github.com/ietf-rats/draft-xia-rats-key-negotiation-integration/pull/7",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- replaced temp ref for diversion attacks\r\n- removed some whitespaces \r\n",
+      "createdAt": "2025-11-01T01:30:30Z",
+      "updatedAt": "2025-11-01T01:36:48Z",
+      "baseRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
+      "baseRefName": "main",
+      "baseRefOid": "2a6260093cc5269db0f70ff6bd4499d5ddad71ce",
+      "headRepository": "ietf-rats/draft-xia-rats-key-negotiation-integration",
+      "headRefName": "diversion",
+      "headRefOid": "c09e1d7abcf96e1f618263e39e5cba721d697ffa",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
